@@ -37,18 +37,65 @@ export default function Index() {
   const [searchTerm, setSearchTerm] = useState("");
   const [location, setLocation] = useState("");
 
-  const services = [
-    { key: "plumbing", icon: Wrench, color: "bg-blue-100 text-blue-600" },
-    { key: "electrical", icon: Zap, color: "bg-yellow-100 text-yellow-600" },
-    { key: "cleaning", icon: Home, color: "bg-green-100 text-green-600" },
-    {
-      key: "painting",
-      icon: Paintbrush,
-      color: "bg-purple-100 text-purple-600",
-    },
-    { key: "carpentry", icon: Hammer, color: "bg-orange-100 text-orange-600" },
-    { key: "gardening", icon: Leaf, color: "bg-emerald-100 text-emerald-600" },
-  ];
+  // Dynamic services based on 30km radius provider availability
+  const getServicesInArea = (userLocation: string) => {
+    // Mock data - in real app, this would be an API call
+    const allServices = [
+      {
+        key: "plumbing",
+        icon: Wrench,
+        color: "bg-blue-100 text-blue-600",
+        providers: 45,
+      },
+      {
+        key: "electrical",
+        icon: Zap,
+        color: "bg-yellow-100 text-yellow-600",
+        providers: 38,
+      },
+      {
+        key: "cleaning",
+        icon: Home,
+        color: "bg-green-100 text-green-600",
+        providers: 52,
+      },
+      {
+        key: "painting",
+        icon: Paintbrush,
+        color: "bg-purple-100 text-purple-600",
+        providers: 23,
+      },
+      {
+        key: "carpentry",
+        icon: Hammer,
+        color: "bg-orange-100 text-orange-600",
+        providers: 31,
+      },
+      {
+        key: "gardening",
+        icon: Leaf,
+        color: "bg-emerald-100 text-emerald-600",
+        providers: 19,
+      },
+      {
+        key: "handyman",
+        icon: Wrench,
+        color: "bg-gray-100 text-gray-600",
+        providers: 27,
+      },
+      {
+        key: "funeral",
+        icon: Users,
+        color: "bg-slate-100 text-slate-600",
+        providers: 8,
+      },
+    ];
+
+    // Return top 6 services with most providers in area
+    return allServices.sort((a, b) => b.providers - a.providers).slice(0, 6);
+  };
+
+  const services = getServicesInArea(location);
 
   const featuredProviders = [
     {
