@@ -28,6 +28,8 @@ const App = () => (
           <main className="min-h-screen">
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/sos" element={<SOS />} />
               <Route path="/services/:service" element={<PlaceholderPage />} />
               <Route path="/providers" element={<PlaceholderPage />} />
               <Route path="/provider/:id" element={<PlaceholderPage />} />
@@ -35,10 +37,16 @@ const App = () => (
               <Route path="/about" element={<PlaceholderPage />} />
               <Route path="/contact" element={<PlaceholderPage />} />
               <Route path="/login" element={<PlaceholderPage />} />
-              <Route path="/register" element={<PlaceholderPage />} />
               <Route path="/become-provider" element={<PlaceholderPage />} />
               <Route path="/search" element={<PlaceholderPage />} />
               <Route path="/contact/:id" element={<PlaceholderPage />} />
+              <Route path="/terms" element={<PlaceholderPage />} />
+              <Route path="/privacy" element={<PlaceholderPage />} />
+              <Route path="/faq" element={<PlaceholderPage />} />
+              <Route path="/support" element={<PlaceholderPage />} />
+              <Route path="/careers" element={<PlaceholderPage />} />
+              <Route path="/press" element={<PlaceholderPage />} />
+              <Route path="/partners" element={<PlaceholderPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
