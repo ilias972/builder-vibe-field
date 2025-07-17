@@ -12,6 +12,8 @@ import { Footer } from "@/components/Footer";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PlaceholderPage from "./pages/PlaceholderPage";
+import Register from "./pages/Register";
+import SOS from "./pages/SOS";
 
 const queryClient = new QueryClient();
 
