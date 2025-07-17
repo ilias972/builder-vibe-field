@@ -96,7 +96,7 @@ export default function Index() {
       service: "Plomberie",
       rating: 5,
       comment:
-        "Service rapide et professionnel. Le plombier était très compétent et a résolu mon problème en moins d'une heure.",
+        "Service rapide et professionnel. Le plombier ��tait très compétent et a résolu mon problème en moins d'une heure.",
       avatar: "/placeholder.svg",
     },
     {
@@ -141,10 +141,10 @@ export default function Index() {
             {/* Search Form */}
             <form
               onSubmit={handleSearch}
-              className="bg-card rounded-2xl p-6 shadow-lg max-w-3xl mx-auto"
+              className="bg-card rounded-2xl p-6 shadow-lg max-w-4xl mx-auto"
             >
-              <div className="grid md:grid-cols-3 gap-4">
-                <div className="md:col-span-2">
+              <div className="grid lg:grid-cols-5 md:grid-cols-1 gap-4">
+                <div className="lg:col-span-3 md:col-span-1">
                   <div className="relative">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
                     <Input
@@ -155,17 +155,42 @@ export default function Index() {
                     />
                   </div>
                 </div>
-                <div className="flex gap-2">
-                  <div className="relative flex-1">
+                <div className="lg:col-span-1 md:col-span-1">
+                  <div className="relative">
                     <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
                     <Input
                       placeholder={t("home.search_location")}
                       value={location}
                       onChange={(e) => setLocation(e.target.value)}
                       className="pl-10 h-12"
+                      list="moroccan-cities"
                     />
+                    <datalist id="moroccan-cities">
+                      <option value="Casablanca" />
+                      <option value="Rabat" />
+                      <option value="Marrakech" />
+                      <option value="Fès" />
+                      <option value="Tanger" />
+                      <option value="Agadir" />
+                      <option value="Meknès" />
+                      <option value="Oujda" />
+                      <option value="Tétouan" />
+                      <option value="Salé" />
+                      <option value="Kenitra" />
+                      <option value="El Jadida" />
+                      <option value="Béni Mellal" />
+                      <option value="Khouribga" />
+                      <option value="Nador" />
+                      <option value="Settat" />
+                      <option value="Mohammedia" />
+                      <option value="Larache" />
+                      <option value="Ksar El Kébir" />
+                      <option value="Guelmim" />
+                    </datalist>
                   </div>
-                  <Button type="submit" size="lg" className="h-12 px-8">
+                </div>
+                <div className="lg:col-span-1 md:col-span-1">
+                  <Button type="submit" size="lg" className="h-12 w-full">
                     {t("home.search_button")}
                   </Button>
                 </div>
