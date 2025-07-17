@@ -15,6 +15,8 @@ import PlaceholderPage from "./pages/PlaceholderPage";
 import Register from "./pages/Register";
 import SOS from "./pages/SOS";
 import ProviderProfile from "./pages/ProviderProfile";
+import BecomeProvider from "./pages/BecomeProvider";
+import ClubPro from "./pages/ClubPro";
 
 const queryClient = new QueryClient();
 
