@@ -183,12 +183,12 @@ export function Header() {
                 {t("nav.providers")}
               </Link>
               <Link
-                to="/b2b"
+                to="/club-pro"
                 className="flex items-center space-x-3 rounded-md p-2 text-sm font-medium hover:bg-accent"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <Building2 className="h-4 w-4" />
-                {t("nav.b2b")}
+                Club Pro
               </Link>
               <Link
                 to="/about"
