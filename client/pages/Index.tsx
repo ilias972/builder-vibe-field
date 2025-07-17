@@ -294,6 +294,10 @@ export default function Index() {
                     <h3 className="font-semibold">
                       {t(`service.${service.key}`)}
                     </h3>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      {service.providers}{" "}
+                      {language === "ar" ? "مق��م خدمة" : "prestataires"}
+                    </p>
                   </CardContent>
                 </Card>
               </Link>
