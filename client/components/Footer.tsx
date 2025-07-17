@@ -143,10 +143,10 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  to="/b2b"
+                  to="/club-pro"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Club Pro B2B
+                  Club Pro
                 </Link>
               </li>
             </ul>
