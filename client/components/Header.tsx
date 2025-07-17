@@ -117,13 +117,15 @@ export function Header() {
             <LanguageToggle />
 
             {/* Emergency Badge */}
-            <Badge
-              variant="destructive"
-              className="hidden md:flex animate-pulse"
-            >
-              <Phone className="mr-1 h-3 w-3" />
-              SOS 24/7
-            </Badge>
+            <Link to="/sos">
+              <Badge
+                variant="destructive"
+                className="hidden md:flex animate-pulse cursor-pointer hover:bg-destructive/90 transition-colors"
+              >
+                <Phone className="mr-1 h-3 w-3" />
+                SOS 24/7
+              </Badge>
+            </Link>
 
             {/* Auth buttons */}
             <div className="hidden md:flex items-center space-x-2">
