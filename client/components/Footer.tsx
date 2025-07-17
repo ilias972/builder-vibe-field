@@ -24,7 +24,7 @@ export function Footer() {
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                 <Wrench className="h-5 w-5" />
               </div>
-              <span className="text-xl font-bold text-primary">خدمات</span>
+              <span className="text-xl font-bold text-primary">Khadamat</span>
             </Link>
             <p className="text-muted-foreground text-sm mb-4">
               La plateforme marocaine de référence pour tous vos besoins en
