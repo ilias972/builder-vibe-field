@@ -563,9 +563,9 @@ export default function Index() {
               className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
               asChild
             >
-              <Link to="/b2b">
+              <Link to="/club-pro">
                 <Award className="mr-2 h-5 w-5" />
-                Club Pro B2B
+                Club Pro
               </Link>
             </Button>
           </div>
