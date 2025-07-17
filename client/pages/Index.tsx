@@ -95,7 +95,7 @@ export default function Index() {
     return allServices.sort((a, b) => b.providers - a.providers).slice(0, 6);
   };
 
-  const services = getServicesInArea(location);
+  const services = getServicesInArea(location) || [];
 
   const featuredProviders = [
     {
