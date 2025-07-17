@@ -33,7 +33,7 @@ import {
 } from "lucide-react";
 
 export default function Index() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [searchTerm, setSearchTerm] = useState("");
   const [location, setLocation] = useState("");
 
@@ -296,7 +296,7 @@ export default function Index() {
                     </h3>
                     <p className="text-xs text-muted-foreground mt-1">
                       {service.providers}{" "}
-                      {language === "ar" ? "مق��م خدمة" : "prestataires"}
+                      {language === "ar" ? "مقدم خدمة" : "prestataires"}
                     </p>
                   </CardContent>
                 </Card>
