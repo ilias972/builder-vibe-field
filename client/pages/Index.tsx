@@ -96,7 +96,7 @@ export default function Index() {
       service: "Plomberie",
       rating: 5,
       comment:
-        "Service rapide et professionnel. Le plombier ��tait très compétent et a résolu mon problème en moins d'une heure.",
+        "Service rapide et professionnel. Le plombier était très compétent et a résolu mon problème en moins d'une heure.",
       avatar: "/placeholder.svg",
     },
     {
@@ -534,9 +534,11 @@ export default function Index() {
                 au Maroc
               </p>
             </div>
-            <Button size="lg" variant="secondary">
-              <Phone className="mr-2 h-5 w-5" />
-              Appeler SOS
+            <Button size="lg" variant="secondary" asChild>
+              <Link to="/sos">
+                <Phone className="mr-2 h-5 w-5" />
+                Appeler SOS
+              </Link>
             </Button>
           </div>
         </div>
