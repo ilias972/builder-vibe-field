@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,171 +13,157 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import {
   Phone,
   MapPin,
-  Clock,
   AlertTriangle,
-  Zap,
-  Wrench,
-  Home,
   Shield,
-  Car,
   Flame,
-  Droplets,
-  Lock,
   Heart,
-  Users,
   PhoneCall,
+  Clock,
+  Users,
+  Car,
+  Building,
+  Camera,
+  Mic,
+  HelpCircle,
 } from "lucide-react";
 
 export default function SOS() {
   const { language } = useLanguage();
-  const [selectedService, setSelectedService] = useState("");
+  const [selectedEmergency, setSelectedEmergency] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
   const [contactPhone, setContactPhone] = useState("");
-  const [step, setStep] = useState(1);
+  const [isCallActive, setIsCallActive] = useState(false);
 
   const emergencyServices = [
     {
-      id: "plumbing",
-      nameAr: "طوارئ السباكة",
-      nameFr: "Urgence Plomberie",
-      icon: Droplets,
-      color: "bg-blue-100 text-blue-600",
-      price: "300-500 DH",
-      description: {
-        ar: "تسريب المياه، انفجار الأنابيب، انسداد المجاري",
-        fr: "Fuites d'eau, rupture de canalisations, débouchage urgent",
-      },
-      examples: {
-        ar: ["تسريب مياه", "انفجار أنبوب", "انسداد المرحاض"],
-        fr: ["Fuite d'eau", "Canalisation éclatée", "WC bouché"],
-      },
-    },
-    {
-      id: "electrical",
-      nameAr: "طوارئ الكهرباء",
-      nameFr: "Urgence Électricité",
-      icon: Zap,
-      color: "bg-yellow-100 text-yellow-600",
-      price: "250-400 DH",
-      description: {
-        ar: "انقطاع الكهرباء، دارة قصيرة، مشاكل التوصيل",
-        fr: "Panne électrique, court-circuit, problèmes de connexion",
-      },
-      examples: {
-        ar: ["انقطاع الكهرباء", "شرارة كهربائية", "عطل في اللوحة"],
-        fr: ["Panne électrique", "Étincelles", "Problème tableau électrique"],
-      },
-    },
-    {
-      id: "locksmith",
-      nameAr: "طوارئ الأقفال",
-      nameFr: "Urgence Serrurerie",
-      icon: Lock,
-      color: "bg-gray-100 text-gray-600",
-      price: "200-350 DH",
-      description: {
-        ar: "فقدان المفاتيح، كسر الأقفال، الإغلاق الخطأ",
-        fr: "Clés perdues, serrures cassées, porte claquée",
-      },
-      examples: {
-        ar: ["فقدان المفاتيح", "كسر القفل", "باب مغلق"],
-        fr: ["Clés perdues", "Serrure cassée", "Porte bloquée"],
-      },
-    },
-    {
-      id: "heating",
-      nameAr: "طوارئ التدفئة",
-      nameFr: "Urgence Chauffage",
-      icon: Flame,
-      color: "bg-orange-100 text-orange-600",
-      price: "350-600 DH",
-      description: {
-        ar: "عطل المرجل، تسريب الغاز، مشاكل التدفئة",
-        fr: "Panne chaudière, fuite de gaz, problèmes de chauffage",
-      },
-      examples: {
-        ar: ["عطل المرجل", "تسريب غاز", "عدم وجود تدفئة"],
-        fr: ["Panne chaudière", "Fuite gaz", "Pas de chauffage"],
-      },
-    },
-    {
-      id: "glass",
-      nameAr: "طوارئ الزجاج",
-      nameFr: "Urgence Vitrerie",
-      icon: Home,
-      color: "bg-green-100 text-green-600",
-      price: "200-400 DH",
-      description: {
-        ar: "كسر النوافذ، الأبواب الزجاجية، واجهات المحلات",
-        fr: "Vitres cassées, portes vitrées, devantures de magasins",
-      },
-      examples: {
-        ar: ["نافذة مكسورة", "باب زجاجي مكسور", "واجهة محل"],
-        fr: ["Vitre cassée", "Porte vitrée brisée", "Devanture magasin"],
-      },
-    },
-    {
-      id: "security",
-      nameAr: "طوارئ الأمن",
-      nameFr: "Urgence Sécurité",
+      id: "police",
+      nameAr: "الشرطة",
+      nameFr: "Police",
+      number: "19",
       icon: Shield,
-      color: "bg-red-100 text-red-600",
-      price: "400-800 DH",
+      color: "bg-blue-100 text-blue-600 border-blue-200",
       description: {
-        ar: "كاميرات المراقبة، أنظمة الإنذار، الأمن",
-        fr: "Caméras de surveillance, systèmes d'alarme, sécurité",
+        ar: "الإبلاغ عن جرائم، حوادث، أو طلب المساعدة الأمنية",
+        fr: "Signaler des crimes, accidents ou demander une assistance sécuritaire",
       },
       examples: {
-        ar: ["عطل الكا��يرات", "مشكل الإنذار", "كسر الأمان"],
-        fr: ["Panne caméras", "Problème alarme", "Sécurité compromise"],
+        ar: ["سرقة", "اعتداء", "حادث سير", "مشكل أمني"],
+        fr: ["Vol", "Agression", "Accident", "Problème de sécurité"],
+      },
+    },
+    {
+      id: "fire",
+      nameAr: "الحماية المدنية",
+      nameFr: "Pompiers",
+      number: "15",
+      icon: Flame,
+      color: "bg-red-100 text-red-600 border-red-200",
+      description: {
+        ar: "حرائق، حوادث، إنقاذ، أو حالات طوارئ مدنية",
+        fr: "Incendies, accidents, sauvetages ou urgences civiles",
+      },
+      examples: {
+        ar: ["حريق", "انهيار مبنى", "إنقاذ شخص", "تسريب غاز"],
+        fr: ["Incendie", "Effondrement", "Sauvetage", "Fuite de gaz"],
+      },
+    },
+    {
+      id: "ambulance",
+      nameAr: "الإسعاف",
+      nameFr: "SAMU / Ambulance",
+      number: "15",
+      icon: Heart,
+      color: "bg-green-100 text-green-600 border-green-200",
+      description: {
+        ar: "حالات طبية طارئة تحتاج تدخل فوري",
+        fr: "Urgences médicales nécessitant une intervention immédiate",
+      },
+      examples: {
+        ar: ["نوبة قلبية", "حادث خطير", "فقدان وعي", "حالة طبية طارئة"],
+        fr: [
+          "Crise cardiaque",
+          "Accident grave",
+          "Perte de conscience",
+          "Urgence médicale",
+        ],
+      },
+    },
+    {
+      id: "gendarmerie",
+      nameAr: "الدرك الملكي",
+      nameFr: "Gendarmerie Royale",
+      number: "177",
+      icon: Shield,
+      color: "bg-yellow-100 text-yellow-600 border-yellow-200",
+      description: {
+        ar: "للمناطق الريفية والطرق السريعة",
+        fr: "Pour les zones rurales et autoroutes",
+      },
+      examples: {
+        ar: ["حوادث الطرق", "مشاكل ريفية", "أمن الطرق"],
+        fr: ["Accidents routiers", "Problèmes ruraux", "Sécurité routière"],
       },
     },
   ];
 
-  const handleServiceSelect = (serviceId: string) => {
-    setSelectedService(serviceId);
-    setStep(2);
+  const handleEmergencyCall = (service: any) => {
+    setSelectedEmergency(service.id);
+    setIsCallActive(true);
+
+    // In a real app, this would initiate an actual emergency call
+    setTimeout(() => {
+      alert(
+        language === "ar"
+          ? `جاري الاتصال بـ ${service.nameAr} (${service.number})...`
+          : `Connexion avec ${service.nameFr} (${service.number})...`,
+      );
+      setIsCallActive(false);
+    }, 2000);
   };
 
-  const handleEmergencyCall = () => {
-    // This would integrate with the emergency call system
+  const handleQuickCall = (number: string, serviceName: string) => {
+    // This would make an actual call in a real app
+    window.open(`tel:${number}`);
     alert(
       language === "ar"
-        ? "جاري الاتصال بخدمة الطوارئ..."
-        : "Connexion au service d'urgence en cours...",
+        ? `اتصال بـ ${serviceName}: ${number}`
+        : `Appel vers ${serviceName}: ${number}`,
     );
   };
 
-  const handleSubmitRequest = () => {
-    // This would submit the emergency request
-    const requestData = {
-      service: selectedService,
-      location,
-      description,
-      phone: contactPhone,
-      timestamp: new Date().toISOString(),
-    };
-    console.log("Emergency request:", requestData);
-    alert(
-      language === "ar"
-        ? "تم إرسال طلب الطوارئ. سيتم الاتصال بك خلال دقائق."
-        : "Demande d'urgence envoyée. Vous serez contacté dans quelques minutes.",
-    );
+  const sendLocationToEmergency = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+          alert(
+            language === "ar"
+              ? `تم إرسال موقعك: ${lat.toFixed(6)}, ${lng.toFixed(6)}`
+              : `Localisation envoyée: ${lat.toFixed(6)}, ${lng.toFixed(6)}`,
+          );
+        },
+        () => {
+          alert(
+            language === "ar"
+              ? "لا يمكن الحصول على الموقع"
+              : "Impossible d'obtenir la localisation",
+          );
+        },
+      );
+    }
   };
-
-  const selectedServiceData = emergencyServices.find(
-    (s) => s.id === selectedService,
-  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-50">
@@ -191,302 +176,321 @@ export default function SOS() {
             </div>
           </div>
           <h1 className="text-4xl font-bold text-red-600 mb-2">
-            {language === "ar" ? "خدمة الطوارئ 24/7" : "Service d'Urgence 24/7"}
+            {language === "ar"
+              ? "خدمات الطوارئ والأمان"
+              : "Services d'Urgence et Sécurité"}
           </h1>
           <p className="text-muted-foreground text-lg">
             {language === "ar"
-              ? "تدخل فوري في جميع أنحاء المغرب"
-              : "Intervention immédiate partout au Maroc"}
+              ? "اتصل بخدمات الطوارئ المغربية مباشرة من Khadamat"
+              : "Contactez les services d'urgence marocains directement depuis Khadamat"}
           </p>
           <Badge variant="destructive" className="text-lg px-4 py-2 mt-4">
             <Phone className="mr-2 h-5 w-5" />
-            {language === "ar" ? "نشط الآن" : "Actif maintenant"}
+            {language === "ar" ? "متاح 24/7" : "Disponible 24/7"}
           </Badge>
         </div>
 
-        {/* Emergency Contact Banner */}
+        {/* Quick Call Section */}
         <Card className="border-red-200 bg-red-50 mb-8">
           <CardContent className="p-6">
-            <div className="flex flex-col md:flex-row items-center justify-between">
-              <div className="text-center md:text-left mb-4 md:mb-0">
-                <h3 className="text-xl font-bold text-red-700 mb-2">
-                  {language === "ar" ? "حالة طوارئ قصوى؟" : "Urgence extrême ?"}
-                </h3>
-                <p className="text-red-600">
-                  {language === "ar"
-                    ? "اتصل فوراً للحصول على مساعدة فورية"
-                    : "Appelez immédiatement pour une aide instantanée"}
-                </p>
-              </div>
-              <Button
-                size="lg"
-                className="bg-red-600 hover:bg-red-700 text-white"
-                onClick={handleEmergencyCall}
-              >
-                <PhoneCall className="mr-2 h-5 w-5" />
-                {language === "ar" ? "اتصال طوارئ" : "Appel d'urgence"}
-              </Button>
+            <h3 className="text-xl font-bold text-red-700 mb-4 text-center">
+              {language === "ar" ? "اتصال سريع" : "Appel rapide"}
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {emergencyServices.map((service) => (
+                <Button
+                  key={service.id}
+                  variant="outline"
+                  className="h-20 flex flex-col gap-2 bg-white border-2 hover:bg-red-50"
+                  onClick={() =>
+                    handleQuickCall(
+                      service.number,
+                      language === "ar" ? service.nameAr : service.nameFr,
+                    )
+                  }
+                >
+                  <service.icon className="h-6 w-6" />
+                  <div className="text-center">
+                    <div className="font-bold text-lg">{service.number}</div>
+                    <div className="text-xs">
+                      {language === "ar" ? service.nameAr : service.nameFr}
+                    </div>
+                  </div>
+                </Button>
+              ))}
             </div>
           </CardContent>
         </Card>
 
-        {step === 1 && (
-          <div>
-            <h2 className="text-2xl font-bold text-center mb-8">
-              {language === "ar" ? "ما نوع الطوارئ؟" : "Quel type d'urgence ?"}
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {emergencyServices.map((service) => (
-                <Card
-                  key={service.id}
-                  className="cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-2 hover:border-primary"
-                  onClick={() => handleServiceSelect(service.id)}
-                >
-                  <CardHeader className="text-center">
-                    <div
-                      className={`inline-flex p-4 rounded-2xl mb-4 mx-auto ${service.color}`}
-                    >
+        {/* Emergency Services Cards */}
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
+          {emergencyServices.map((service) => (
+            <Card
+              key={service.id}
+              className={`transition-all duration-300 hover:shadow-lg border-2 ${service.color}`}
+            >
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className={`p-3 rounded-lg ${service.color}`}>
                       <service.icon className="h-8 w-8" />
                     </div>
-                    <CardTitle className="text-lg">
-                      {language === "ar" ? service.nameAr : service.nameFr}
-                    </CardTitle>
-                    <CardDescription>
-                      {language === "ar"
-                        ? service.description.ar
-                        : service.description.fr}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-muted-foreground">
-                          {language === "ar" ? "التكلفة:" : "Tarif:"}
-                        </span>
-                        <Badge variant="outline">{service.price}</Badge>
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium mb-2">
-                          {language === "ar" ? "أمثلة:" : "Exemples:"}
-                        </p>
-                        <ul className="text-xs text-muted-foreground space-y-1">
-                          {(language === "ar"
-                            ? service.examples.ar
-                            : service.examples.fr
-                          ).map((example, index) => (
-                            <li key={index}>• {example}</li>
-                          ))}
-                        </ul>
-                      </div>
+                    <div>
+                      <CardTitle className="text-xl">
+                        {language === "ar" ? service.nameAr : service.nameFr}
+                      </CardTitle>
+                      <CardDescription className="font-bold text-lg">
+                        {service.number}
+                      </CardDescription>
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {step === 2 && selectedServiceData && (
-          <div className="max-w-2xl mx-auto">
-            <Button variant="ghost" onClick={() => setStep(1)} className="mb-4">
-              ← {language === "ar" ? "العودة" : "Retour"}
-            </Button>
-
-            <Card>
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <div
-                    className={`p-3 rounded-lg ${selectedServiceData.color}`}
-                  >
-                    <selectedServiceData.icon className="h-6 w-6" />
                   </div>
-                  <div>
-                    <CardTitle>
-                      {language === "ar"
-                        ? selectedServiceData.nameAr
-                        : selectedServiceData.nameFr}
-                    </CardTitle>
-                    <CardDescription>
-                      {language === "ar" ? "طلب طوارئ" : "Demande d'urgence"}
-                    </CardDescription>
-                  </div>
+                  <Badge variant="outline" className="text-lg px-3 py-1">
+                    24/7
+                  </Badge>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div>
-                  <Label htmlFor="location">
-                    {language === "ar"
-                      ? "الموقع الدقيق"
-                      : "Localisation exacte"}{" "}
-                    *
-                  </Label>
-                  <div className="relative">
-                    <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                    <Input
-                      id="location"
-                      value={location}
-                      onChange={(e) => setLocation(e.target.value)}
-                      placeholder={
-                        language === "ar"
-                          ? "الحي، الشارع، رقم المنزل..."
-                          : "Quartier, rue, numéro..."
-                      }
-                      className="pl-10"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="phone">
-                    {language === "ar"
-                      ? "رقم الهاتف للاتصال"
-                      : "Numéro de contact"}{" "}
-                    *
-                  </Label>
-                  <div className="relative">
-                    <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                    <Input
-                      id="phone"
-                      type="tel"
-                      value={contactPhone}
-                      onChange={(e) => setContactPhone(e.target.value)}
-                      placeholder="+212 6XX XX XX XX"
-                      className="pl-10"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="description">
-                    {language === "ar"
-                      ? "وصف المشكلة"
-                      : "Description du problème"}{" "}
-                    *
-                  </Label>
-                  <Textarea
-                    id="description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    placeholder={
-                      language === "ar"
-                        ? "اشرح المشكلة بالتفصيل..."
-                        : "Décrivez le problème en détail..."
-                    }
-                    rows={4}
-                    required
-                  />
-                </div>
-
-                {/* Estimated Response Time */}
-                <Card className="bg-green-50 border-green-200">
-                  <CardContent className="p-4">
-                    <div className="flex items-center space-x-3">
-                      <Clock className="h-5 w-5 text-green-600" />
-                      <div>
-                        <p className="font-medium text-green-800">
-                          {language === "ar"
-                            ? "وقت الاستجابة المتوقع"
-                            : "Temps de réponse estimé"}
-                        </p>
-                        <p className="text-sm text-green-600">
-                          {language === "ar" ? "15-30 دقيقة" : "15-30 minutes"}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Price Information */}
-                <Card className="bg-blue-50 border-blue-200">
-                  <CardContent className="p-4">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="font-medium text-blue-800">
-                          {language === "ar"
-                            ? "التكلفة المتوقعة"
-                            : "Coût estimé"}
-                        </p>
-                        <p className="text-sm text-blue-600">
-                          {language === "ar"
-                            ? "يشمل التنقل والتدخل"
-                            : "Inclut déplacement et intervention"}
-                        </p>
-                      </div>
-                      <Badge className="bg-blue-600 text-white">
-                        {selectedServiceData.price}
-                      </Badge>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Button
-                  onClick={handleSubmitRequest}
-                  className="w-full bg-red-600 hover:bg-red-700 text-white"
-                  size="lg"
-                  disabled={!location || !contactPhone || !description}
-                >
-                  <AlertTriangle className="mr-2 h-5 w-5" />
+              <CardContent>
+                <p className="text-muted-foreground mb-4">
                   {language === "ar"
-                    ? "إرسال طلب الطوارئ"
-                    : "Envoyer la demande d'urgence"}
-                </Button>
-
-                <p className="text-xs text-muted-foreground text-center">
-                  {language === "ar"
-                    ? "بالضغط على الإرسال، توافق على شروط الخدمة الطارئة"
-                    : "En envoyant, vous acceptez les conditions du service d'urgence"}
+                    ? service.description.ar
+                    : service.description.fr}
                 </p>
+
+                <div className="mb-4">
+                  <p className="font-medium mb-2">
+                    {language === "ar" ? "حالات الاستخدام:" : "Cas d'usage:"}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {(language === "ar"
+                      ? service.examples.ar
+                      : service.examples.fr
+                    ).map((example, index) => (
+                      <Badge
+                        key={index}
+                        variant="secondary"
+                        className="text-xs"
+                      >
+                        {example}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex gap-2">
+                  <Button
+                    className="flex-1"
+                    onClick={() => handleEmergencyCall(service)}
+                    disabled={isCallActive}
+                  >
+                    <PhoneCall className="mr-2 h-4 w-4" />
+                    {language === "ar" ? "اتصال" : "Appeler"}
+                  </Button>
+
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button variant="outline">
+                        <MapPin className="h-4 w-4" />
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>
+                          {language === "ar"
+                            ? "تفاصيل الطوارئ"
+                            : "Détails de l'urgence"}
+                        </DialogTitle>
+                        <DialogDescription>
+                          {language === "ar"
+                            ? "قدم معلومات إضافية لخدمات الطوارئ"
+                            : "Fournissez des informations supplémentaires aux services d'urgence"}
+                        </DialogDescription>
+                      </DialogHeader>
+                      <div className="space-y-4">
+                        <div>
+                          <Label>
+                            {language === "ar"
+                              ? "الموقع الدقيق"
+                              : "Localisation exacte"}
+                          </Label>
+                          <div className="flex gap-2">
+                            <Input
+                              value={location}
+                              onChange={(e) => setLocation(e.target.value)}
+                              placeholder={
+                                language === "ar"
+                                  ? "اكتب موقعك..."
+                                  : "Décrivez votre localisation..."
+                              }
+                            />
+                            <Button
+                              variant="outline"
+                              onClick={sendLocationToEmergency}
+                            >
+                              <MapPin className="h-4 w-4" />
+                            </Button>
+                          </div>
+                        </div>
+
+                        <div>
+                          <Label>
+                            {language === "ar"
+                              ? "وصف الحالة"
+                              : "Description de la situation"}
+                          </Label>
+                          <Textarea
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                            placeholder={
+                              language === "ar"
+                                ? "اشرح ما يحدث..."
+                                : "Décrivez ce qui se passe..."
+                            }
+                            rows={3}
+                          />
+                        </div>
+
+                        <div>
+                          <Label>
+                            {language === "ar"
+                              ? "رقم الاتصال"
+                              : "Numéro de contact"}
+                          </Label>
+                          <Input
+                            value={contactPhone}
+                            onChange={(e) => setContactPhone(e.target.value)}
+                            placeholder="+212 6XX XX XX XX"
+                          />
+                        </div>
+
+                        <Button
+                          className="w-full"
+                          onClick={() => handleEmergencyCall(service)}
+                        >
+                          <PhoneCall className="mr-2 h-4 w-4" />
+                          {language === "ar"
+                            ? `اتصال بـ ${service.nameAr}`
+                            : `Appeler ${service.nameFr}`}
+                        </Button>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                </div>
               </CardContent>
             </Card>
-          </div>
-        )}
+          ))}
+        </div>
 
-        {/* Info Section */}
-        <div className="mt-12 grid md:grid-cols-3 gap-6">
+        {/* Safety Features */}
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <Card>
+            <CardContent className="p-6 text-center">
+              <MapPin className="h-8 w-8 text-primary mx-auto mb-3" />
+              <h3 className="font-semibold mb-2">
+                {language === "ar"
+                  ? "مشاركة الموقع"
+                  : "Partage de localisation"}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                {language === "ar"
+                  ? "نرسل موقعك تلقائياً لخدمات الطوارئ"
+                  : "Nous envoyons automatiquement votre position aux secours"}
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent className="p-6 text-center">
+              <Phone className="h-8 w-8 text-primary mx-auto mb-3" />
+              <h3 className="font-semibold mb-2">
+                {language === "ar" ? "اتصال مباشر" : "Appel direct"}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                {language === "ar"
+                  ? "اتصال فوري بالأرقام الرسمية"
+                  : "Connexion immédiate aux numéros officiels"}
+              </p>
+            </CardContent>
+          </Card>
+
           <Card>
             <CardContent className="p-6 text-center">
               <Clock className="h-8 w-8 text-primary mx-auto mb-3" />
               <h3 className="font-semibold mb-2">
-                {language === "ar" ? "متاح 24/7" : "Disponible 24/7"}
+                {language === "ar" ? "متاح دائماً" : "Toujours disponible"}
               </h3>
               <p className="text-sm text-muted-foreground">
                 {language === "ar"
-                  ? "خدمة الطوارئ متاحة طوال اليوم"
-                  : "Service d'urgence disponible à toute heure"}
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="p-6 text-center">
-              <Users className="h-8 w-8 text-primary mx-auto mb-3" />
-              <h3 className="font-semibold mb-2">
-                {language === "ar" ? "فريق محترف" : "Équipe professionnelle"}
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                {language === "ar"
-                  ? "خبراء معتمدون ومدربون"
-                  : "Experts certifiés et formés"}
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="p-6 text-center">
-              <Shield className="h-8 w-8 text-primary mx-auto mb-3" />
-              <h3 className="font-semibold mb-2">
-                {language === "ar" ? "خدمة مؤمنة" : "Service assuré"}
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                {language === "ar"
-                  ? "تأمين شامل لجميع التدخلات"
-                  : "Assurance complète pour toutes interventions"}
+                  ? "خدمة متاحة 24 ساعة، 7 أيام في الأسبوع"
+                  : "Service disponible 24h/24, 7j/7"}
               </p>
             </CardContent>
           </Card>
         </div>
+
+        {/* Important Notice */}
+        <Card className="border-yellow-200 bg-yellow-50">
+          <CardContent className="p-6">
+            <div className="flex items-start space-x-3">
+              <AlertTriangle className="h-6 w-6 text-yellow-600 mt-1" />
+              <div>
+                <h3 className="font-semibold text-yellow-800 mb-2">
+                  {language === "ar" ? "تنويه مهم" : "Information importante"}
+                </h3>
+                <div className="text-sm text-yellow-700 space-y-2">
+                  <p>
+                    {language === "ar"
+                      ? "• هذه الخدمة مخصصة للطوارئ الحقيقية فقط"
+                      : "• Ce service est réservé aux urgences réelles uniquement"}
+                  </p>
+                  <p>
+                    {language === "ar"
+                      ? "• استخدام خاطئ قد يعرضك للمساءلة القانونية"
+                      : "• Un usage abusif peut entraîner des poursuites légales"}
+                  </p>
+                  <p>
+                    {language === "ar"
+                      ? "• في حالة عدم الطوارئ، اتصل بالخدمات العادية"
+                      : "• Pour les non-urgences, contactez les services habituels"}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Help Section */}
+        <Card className="mt-8">
+          <CardContent className="p-6">
+            <div className="text-center">
+              <HelpCircle className="h-8 w-8 text-primary mx-auto mb-3" />
+              <h3 className="font-semibold mb-2">
+                {language === "ar" ? "ليس حالة طوارئ؟" : "Pas une urgence ?"}
+              </h3>
+              <p className="text-muted-foreground mb-4">
+                {language === "ar"
+                  ? "للمساعدة في المهام العادية، تصفح خدماتنا"
+                  : "Pour de l'aide avec vos tâches quotidiennes, explorez nos services"}
+              </p>
+              <div className="flex justify-center gap-4">
+                <Button variant="outline" asChild>
+                  <a href="/">
+                    {language === "ar"
+                      ? "تصفح الخدمات"
+                      : "Parcourir les services"}
+                  </a>
+                </Button>
+                <Button variant="outline" asChild>
+                  <a href="/providers">
+                    {language === "ar"
+                      ? "البحث عن مقدمي الخدمات"
+                      : "Trouver des prestataires"}
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
