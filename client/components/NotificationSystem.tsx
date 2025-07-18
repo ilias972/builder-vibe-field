@@ -431,30 +431,14 @@ export function NotificationBanner() {
     <div className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground p-3">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Gift className="h-5 w-5" />
-            <span className="text-sm font-medium">
-              {language === "ar"
-                ? "🎉 احصل على خصم 20% على أول خدمة من Club Pro!"
-                : "🎉 Obtenez 20% de réduction sur votre premier service Club Pro !"}
-            </span>
-          </div>
+          <div className="flex items-center gap-3"></div>
           <div className="flex items-center gap-2">
-            <Button
-              variant="secondary"
-              size="sm"
-              className="text-xs bg-white/20 hover:bg-white/30"
-            >
-              {language === "ar" ? "تعرف أكثر" : "En savoir plus"}
-            </Button>
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setIsVisible(false)}
               className="text-primary-foreground hover:bg-white/20 h-6 w-6 p-0"
-            >
-              <X className="h-3 w-3" />
-            </Button>
+            ></Button>
           </div>
         </div>
       </div>
