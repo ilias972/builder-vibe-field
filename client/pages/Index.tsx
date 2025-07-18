@@ -12,6 +12,8 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { SmartSearch } from "@/components/SmartSearch";
+import { RecommendationsSection } from "@/components/FavoritesSystem";
 import {
   Search,
   MapPin,
@@ -296,7 +298,7 @@ export default function Index() {
                     </h3>
                     <p className="text-xs text-muted-foreground mt-1">
                       {service.providers}{" "}
-                      {language === "ar" ? "مقدم خدمة" : "prestataires"}
+                      {language === "ar" ? "مقدم خدم��" : "prestataires"}
                     </p>
                   </CardContent>
                 </Card>
