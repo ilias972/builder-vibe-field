@@ -14,6 +14,7 @@ const translations = {
     "nav.home": "Accueil",
     "nav.services": "Services",
     "nav.providers": "Prestataires",
+    "nav.project": "Projet",
     "nav.b2b": "Entreprises",
     "nav.about": "À propos",
     "nav.contact": "Contact",
