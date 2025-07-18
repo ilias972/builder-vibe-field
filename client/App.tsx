@@ -45,7 +45,7 @@ const App = () => (
               <Route path="/club-pro" element={<ClubPro />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/login" element={<PlaceholderPage />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/become-provider" element={<BecomeProvider />} />
               <Route path="/search" element={<PlaceholderPage />} />
               <Route path="/contact/:id" element={<PlaceholderPage />} />
