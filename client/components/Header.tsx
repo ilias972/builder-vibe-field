@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LanguageToggle } from "@/components/LanguageToggle";
+import { NotificationButton } from "@/components/NotificationSystem";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -21,6 +22,7 @@ import {
   Phone,
   UserCheck,
   Shield,
+  Search,
 } from "lucide-react";
 
 export function Header() {
