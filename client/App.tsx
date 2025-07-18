@@ -17,6 +17,11 @@ import SOS from "./pages/SOS";
 import ProviderProfile from "./pages/ProviderProfile";
 import BecomeProvider from "./pages/BecomeProvider";
 import ClubPro from "./pages/ClubPro";
+import Providers from "./pages/Providers";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Login from "./pages/Login";
+import Search from "./pages/Search";
 
 const queryClient = new QueryClient();
 
