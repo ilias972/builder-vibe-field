@@ -34,6 +34,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <NotificationBanner />
           <Header />
           <main className="min-h-screen">
             <Routes>
