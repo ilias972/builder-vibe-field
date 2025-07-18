@@ -24,6 +24,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Search from "./pages/Search";
+import Project from "./pages/Project";
 
 const queryClient = new QueryClient();
 
