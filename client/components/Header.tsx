@@ -23,6 +23,7 @@ import {
   UserCheck,
   Shield,
   Search,
+  Briefcase,
 } from "lucide-react";
 
 export function Header() {
@@ -54,37 +55,13 @@ export function Header() {
           <NavigationMenu className="hidden lg:flex">
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-sm font-medium">
-                  {t("nav.services")}
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                    {services.map((service) => (
-                      <NavigationMenuLink key={service.key} asChild>
-                        <Link
-                          to={`/services/${service.key}`}
-                          className="flex items-center space-x-3 rounded-md p-3 text-sm leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                        >
-                          <service.icon className="h-5 w-5 text-primary" />
-                          <div>
-                            <div className="font-medium">
-                              {t(`service.${service.key}`)}
-                            </div>
-                          </div>
-                        </Link>
-                      </NavigationMenuLink>
-                    ))}
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
                 <NavigationMenuLink asChild>
                   <Link
-                    to="/providers"
+                    to="/project"
                     className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                   >
-                    {t("nav.providers")}
+                    <Briefcase className="mr-2 h-4 w-4" />
+                    {t("nav.project", "Projet")}
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -122,7 +99,7 @@ export function Header() {
             <Link to="/sos">
               <Badge
                 variant="destructive"
-                className="hidden md:flex animate-pulse cursor-pointer hover:bg-destructive/90 transition-colors"
+                className="hidden md:flex cursor-pointer hover:bg-destructive/90 transition-colors"
               >
                 <Phone className="mr-1 h-3 w-3" />
                 SOS 24/7
@@ -169,20 +146,12 @@ export function Header() {
           <div className="lg:hidden border-t bg-background p-4">
             <nav className="flex flex-col space-y-3">
               <Link
-                to="/services"
+                to="/project"
                 className="flex items-center space-x-3 rounded-md p-2 text-sm font-medium hover:bg-accent"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <Wrench className="h-4 w-4" />
-                {t("nav.services")}
-              </Link>
-              <Link
-                to="/providers"
-                className="flex items-center space-x-3 rounded-md p-2 text-sm font-medium hover:bg-accent"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <Users className="h-4 w-4" />
-                {t("nav.providers")}
+                <Briefcase className="h-4 w-4" />
+                {t("nav.project", "Projet")}
               </Link>
               <Link
                 to="/club-pro"
