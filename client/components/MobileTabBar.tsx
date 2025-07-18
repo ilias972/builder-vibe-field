@@ -9,6 +9,7 @@ import {
   User,
   Crown,
   Phone,
+  Briefcase,
 } from "lucide-react";
 
 export function MobileTabBar() {
@@ -29,10 +30,10 @@ export function MobileTabBar() {
       labelFr: "Recherche",
     },
     {
-      path: "/providers",
-      icon: Users,
-      labelAr: "الخدمات",
-      labelFr: "Services",
+      path: "/project",
+      icon: Briefcase,
+      labelAr: "مشروع",
+      labelFr: "Projet",
     },
     {
       path: "/club-pro",
@@ -122,7 +123,7 @@ export function MobileTabBar() {
                     {tab.emergency && (
                       <Badge
                         variant="destructive"
-                        className="absolute -top-2 -right-2 text-xs px-1 animate-pulse"
+                        className="absolute -top-2 -right-2 text-xs px-1"
                       >
                         24/7
                       </Badge>
