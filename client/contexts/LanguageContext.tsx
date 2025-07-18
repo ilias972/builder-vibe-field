@@ -81,6 +81,7 @@ const translations = {
     "nav.home": "الرئيسية",
     "nav.services": "الخدمات",
     "nav.providers": "مقدمو الخدمات",
+    "nav.project": "مشروع",
     "nav.b2b": "الشركات",
     "nav.about": "حولنا",
     "nav.contact": "اتصل بنا",
