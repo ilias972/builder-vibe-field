@@ -100,9 +100,9 @@ export function SmartSearch({ onSearch }: SmartSearchProps) {
   return (
     <form onSubmit={handleSearchSubmit} className="relative">
       <div className="bg-card rounded-2xl p-6 shadow-lg border">
-        <div className="grid lg:grid-cols-5 md:grid-cols-1 gap-4">
+        <div className="grid lg:grid-cols-4 md:grid-cols-1 gap-4">
           {/* Smart Search Input */}
-          <div className="lg:col-span-3 md:col-span-1 relative" ref={searchRef}>
+          <div className="lg:col-span-2 md:col-span-1 relative" ref={searchRef}>
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
               <Input
