@@ -187,64 +187,8 @@ export default function Index() {
               {t("home.subtitle")}
             </p>
 
-            {/* Search Form */}
-            <form
-              onSubmit={handleSearch}
-              className="bg-card rounded-2xl p-6 shadow-lg max-w-4xl mx-auto"
-            >
-              <div className="grid lg:grid-cols-5 md:grid-cols-1 gap-4">
-                <div className="lg:col-span-3 md:col-span-1">
-                  <div className="relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
-                    <Input
-                      placeholder={t("home.search_placeholder")}
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                      className="pl-10 h-12 text-lg"
-                    />
-                  </div>
-                </div>
-                <div className="lg:col-span-1 md:col-span-1">
-                  <div className="relative">
-                    <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
-                    <Input
-                      placeholder={t("home.search_location")}
-                      value={location}
-                      onChange={(e) => setLocation(e.target.value)}
-                      className="pl-10 h-12"
-                      list="moroccan-cities"
-                    />
-                    <datalist id="moroccan-cities">
-                      <option value="Casablanca" />
-                      <option value="Rabat" />
-                      <option value="Marrakech" />
-                      <option value="Fès" />
-                      <option value="Tanger" />
-                      <option value="Agadir" />
-                      <option value="Meknès" />
-                      <option value="Oujda" />
-                      <option value="Tétouan" />
-                      <option value="Salé" />
-                      <option value="Kenitra" />
-                      <option value="El Jadida" />
-                      <option value="Béni Mellal" />
-                      <option value="Khouribga" />
-                      <option value="Nador" />
-                      <option value="Settat" />
-                      <option value="Mohammedia" />
-                      <option value="Larache" />
-                      <option value="Ksar El Kébir" />
-                      <option value="Guelmim" />
-                    </datalist>
-                  </div>
-                </div>
-                <div className="lg:col-span-1 md:col-span-1">
-                  <Button type="submit" size="lg" className="h-12 w-full">
-                    {t("home.search_button")}
-                  </Button>
-                </div>
-              </div>
-            </form>
+            {/* Smart Search */}
+            <SmartSearch onSearch={handleSearch} />
 
             {/* Quick Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
