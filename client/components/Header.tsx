@@ -48,7 +48,7 @@ export function Header() {
             <img
               src="https://cdn.builder.io/api/v1/image/assets%2F8ebc21d185f04cd5b5868041c20fe8f4%2F804314fe3d0144a791f0476fb3bee0d8?format=webp&width=800"
               alt="Khadamat Logo"
-              className="h-8 w-8 object-contain"
+              className="h-8 w-8 object-cover rounded-full"
             />
             <span className="text-xl font-bold text-primary">Khadamat</span>
           </Link>
