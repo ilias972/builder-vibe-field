@@ -61,13 +61,14 @@ const App = () => (
               <Route path="/become-provider" element={<BecomeProvider />} />
               <Route path="/search" element={<Search />} />
               <Route path="/contact/:id" element={<PlaceholderPage />} />
-              <Route path="/terms" element={<PlaceholderPage />} />
-              <Route path="/privacy" element={<PlaceholderPage />} />
-              <Route path="/faq" element={<PlaceholderPage />} />
-              <Route path="/support" element={<PlaceholderPage />} />
-              <Route path="/careers" element={<PlaceholderPage />} />
-              <Route path="/press" element={<PlaceholderPage />} />
-              <Route path="/partners" element={<PlaceholderPage />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/support" element={<Support />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/press" element={<Press />} />
+              <Route path="/partners" element={<Partners />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
