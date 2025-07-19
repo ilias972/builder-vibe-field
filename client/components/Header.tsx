@@ -45,9 +45,11 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <Wrench className="h-5 w-5" />
-            </div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F8ebc21d185f04cd5b5868041c20fe8f4%2F804314fe3d0144a791f0476fb3bee0d8?format=webp&width=800"
+              alt="Khadamat Logo"
+              className="h-8 w-8 object-contain"
+            />
             <span className="text-xl font-bold text-primary">Khadamat</span>
           </Link>
 
