@@ -25,6 +25,14 @@ import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Search from "./pages/Search";
 import Project from "./pages/Project";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
+import FAQ from "./pages/FAQ";
+import Support from "./pages/Support";
+import Careers from "./pages/Careers";
+import Press from "./pages/Press";
+import Partners from "./pages/Partners";
+import ForgotPassword from "./pages/ForgotPassword";
 
 const queryClient = new QueryClient();
 
