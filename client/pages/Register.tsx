@@ -19,12 +19,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import {
-  Upload,
-  Camera,
-  Shield,
   UserCheck,
   Phone,
   Mail,
@@ -33,13 +29,15 @@ import {
   CheckCircle,
   Eye,
   EyeOff,
+  CreditCard,
+  Shield,
 } from "lucide-react";
 
 export default function Register() {
   const { t, language } = useLanguage();
-  const [userType, setUserType] = useState<"client" | "provider">("client");
   const [step, setStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -51,7 +49,6 @@ export default function Register() {
     address: "",
     idType: "",
     idNumber: "",
-    language: language,
     acceptTerms: false,
     acceptMarketing: false,
   });
@@ -91,92 +88,165 @@ export default function Register() {
     setStep((prev) => prev - 1);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would handle the registration logic
-    console.log("Registration data:", formData);
-    alert("Inscription réussie ! Vérification en cours...");
+    setIsLoading(true);
+
+    // Simulate API call for ID verification
+    setTimeout(() => {
+      setIsLoading(false);
+      setStep(4); // Show success step
+    }, 2000);
   };
 
+  const getStepTitle = (stepNumber: number) => {
+    switch (stepNumber) {
+      case 1:
+        return language === "ar"
+          ? "معلومات شخصية"
+          : "Informations personnelles";
+      case 2:
+        return language === "ar" ? "معلومات الاتصال" : "Coordonnées";
+      case 3:
+        return language === "ar"
+          ? "التحقق من الهوية"
+          : "Vérification d'identité";
+      case 4:
+        return language === "ar"
+          ? "تأكيد التسجيل"
+          : "Confirmation d'inscription";
+      default:
+        return "";
+    }
+  };
+
+  if (step === 4) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-accent/10 p-4">
+        <Card className="w-full max-w-md">
+          <CardHeader className="text-center">
+            <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+              <CheckCircle className="w-8 h-8 text-green-600" />
+            </div>
+            <CardTitle className="text-xl text-green-600">
+              {language === "ar"
+                ? "تم إنشاء الحساب بنجاح!"
+                : "Compte créé avec succès !"}
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="text-center space-y-4">
+            <Alert>
+              <Shield className="h-4 w-4" />
+              <AlertDescription>
+                {language === "ar"
+                  ? "تم إرسال طلب التحقق من الهوية. ستتلقى إشعاراً خلال 24-48 ساعة."
+                  : "Demande de vérification d'identité envoyée. Vous recevrez une notification sous 24-48 heures."}
+              </AlertDescription>
+            </Alert>
+
+            <div className="space-y-3">
+              <Button asChild className="w-full">
+                <Link to="/login">
+                  {language === "ar" ? "تسجيل الدخول" : "Se connecter"}
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="w-full">
+                <Link to="/">
+                  {language === "ar" ? "العودة للرئيسية" : "Retour à l'accueil"}
+                </Link>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-secondary/20 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-primary/10 via-background to-accent/10 py-8">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">
-              {language === "ar" ? "إنشاء حساب جديد" : "Créer un compte"}
+            <div className="flex items-center justify-center mb-4">
+              <UserCheck className="h-12 w-12 text-primary" />
+            </div>
+            <h1 className="text-3xl font-bold text-primary mb-2">
+              {language === "ar" ? "إنشاء حساب عميل" : "Créer un compte client"}
             </h1>
             <p className="text-muted-foreground">
               {language === "ar"
-                ? "انضم إلى منصة خدمات واحصل على أفضل الخدمات"
-                : "Rejoignez Khadamat et accédez aux meilleurs services"}
+                ? "انضم إلى خدمات واحصل على أفضل الخدمات المنزلية"
+                : "Rejoignez Khadamat et accédez aux meilleurs services à domicile"}
             </p>
           </div>
 
-          {/* User Type Selection */}
-          <Card className="mb-6">
-            <CardHeader>
-              <CardTitle className="text-center">
-                {language === "ar" ? "نوع الحساب" : "Type de compte"}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Tabs
-                value={userType}
-                onValueChange={(value) =>
-                  setUserType(value as "client" | "provider")
-                }
-                className="w-full"
-              >
-                <TabsList className="grid w-full grid-cols-2">
-                  <TabsTrigger
-                    value="client"
-                    className="flex items-center gap-2"
+          {/* Progress */}
+          <div className="mb-8">
+            <div className="flex items-center justify-between">
+              {[1, 2, 3].map((stepNumber) => (
+                <div key={stepNumber} className="flex items-center">
+                  <div
+                    className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                      step >= stepNumber
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-muted text-muted-foreground"
+                    }`}
                   >
-                    <UserCheck className="h-4 w-4" />
-                    {language === "ar" ? "عميل" : "Client"}
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="provider"
-                    className="flex items-center gap-2"
-                  >
-                    <Shield className="h-4 w-4" />
-                    {language === "ar" ? "مقدم خدمة" : "Prestataire"}
-                  </TabsTrigger>
-                </TabsList>
-              </Tabs>
-            </CardContent>
-          </Card>
-
-          {/* Registration Form */}
-          <Card>
-            <CardHeader>
-              <div className="flex items-center justify-between">
-                <CardTitle>
-                  {language === "ar"
-                    ? `الخطوة ${step} من 3`
-                    : `Étape ${step} sur 3`}
-                </CardTitle>
-                <div className="flex space-x-1">
-                  {[1, 2, 3].map((i) => (
+                    {stepNumber}
+                  </div>
+                  {stepNumber < 3 && (
                     <div
-                      key={i}
-                      className={`w-2 h-2 rounded-full ${
-                        i <= step ? "bg-primary" : "bg-muted"
+                      className={`w-12 h-1 mx-2 ${
+                        step > stepNumber ? "bg-primary" : "bg-muted"
                       }`}
                     />
-                  ))}
+                  )}
                 </div>
-              </div>
+              ))}
+            </div>
+            <div className="mt-2 text-center">
+              <p className="text-sm text-muted-foreground">
+                {getStepTitle(step)} - {language === "ar" ? "خطوة" : "Étape"}{" "}
+                {step}/3
+              </p>
+            </div>
+          </div>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>{getStepTitle(step)}</CardTitle>
+              <CardDescription>
+                {step === 1 &&
+                  (language === "ar"
+                    ? "أدخل معلوماتك الشخصية الأساسية"
+                    : "Entrez vos informations personnelles de base")}
+                {step === 2 &&
+                  (language === "ar"
+                    ? "أدخل معلومات الاتصال والعنوان"
+                    : "Entrez vos coordonnées et adresse")}
+                {step === 3 &&
+                  (language === "ar"
+                    ? "تحقق من هويتك باستخدام وثيقة رسمية"
+                    : "Vérifiez votre identité avec un document officiel")}
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit}>
-                {/* Step 1: Basic Information */}
+              <form
+                onSubmit={
+                  step === 3
+                    ? handleSubmit
+                    : (e) => {
+                        e.preventDefault();
+                        handleNext();
+                      }
+                }
+              >
+                {/* Step 1: Personal Info */}
                 {step === 1 && (
                   <div className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
-                      <div>
+                      <div className="space-y-2">
                         <Label htmlFor="firstName">
                           {language === "ar" ? "الاسم الأول" : "Prénom"} *
                         </Label>
@@ -189,7 +259,7 @@ export default function Register() {
                           required
                         />
                       </div>
-                      <div>
+                      <div className="space-y-2">
                         <Label htmlFor="lastName">
                           {language === "ar" ? "اسم العائلة" : "Nom de famille"}{" "}
                           *
@@ -205,41 +275,7 @@ export default function Register() {
                       </div>
                     </div>
 
-                    <div>
-                      <Label htmlFor="email">
-                        {language === "ar" ? "البريد الإلكتروني" : "E-mail"} *
-                      </Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) =>
-                          handleInputChange("email", e.target.value)
-                        }
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <Label htmlFor="phone">
-                        {language === "ar"
-                          ? "رقم الهاتف"
-                          : "Numéro de téléphone"}{" "}
-                        *
-                      </Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        placeholder="+212 6XX XX XX XX"
-                        value={formData.phone}
-                        onChange={(e) =>
-                          handleInputChange("phone", e.target.value)
-                        }
-                        required
-                      />
-                    </div>
-
-                    <div>
+                    <div className="space-y-2">
                       <Label htmlFor="password">
                         {language === "ar" ? "كلمة المرور" : "Mot de passe"} *
                       </Label>
@@ -257,7 +293,7 @@ export default function Register() {
                           type="button"
                           variant="ghost"
                           size="sm"
-                          className="absolute right-2 top-1/2 transform -translate-y-1/2"
+                          className="absolute right-2 top-1/2 -translate-y-1/2"
                           onClick={() => setShowPassword(!showPassword)}
                         >
                           {showPassword ? (
@@ -269,7 +305,7 @@ export default function Register() {
                       </div>
                     </div>
 
-                    <div>
+                    <div className="space-y-2">
                       <Label htmlFor="confirmPassword">
                         {language === "ar"
                           ? "تأكيد كلمة المرور"
@@ -286,50 +322,84 @@ export default function Register() {
                         required
                       />
                     </div>
-
-                    <Button
-                      type="button"
-                      onClick={handleNext}
-                      className="w-full"
-                    >
-                      {language === "ar" ? "التالي" : "Suivant"}
-                    </Button>
                   </div>
                 )}
 
-                {/* Step 2: Location & Language */}
+                {/* Step 2: Contact Info */}
                 {step === 2 && (
                   <div className="space-y-4">
-                    <div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">
+                        {language === "ar" ? "البريد الإلكتروني" : "Email"} *
+                      </Label>
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                        <Input
+                          id="email"
+                          type="email"
+                          className="pl-10"
+                          value={formData.email}
+                          onChange={(e) =>
+                            handleInputChange("email", e.target.value)
+                          }
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="phone">
+                        {language === "ar" ? "رقم الهاتف" : "Téléphone"} *
+                      </Label>
+                      <div className="relative">
+                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                        <Input
+                          id="phone"
+                          type="tel"
+                          className="pl-10"
+                          placeholder="+212 6XX-XXX-XXX"
+                          value={formData.phone}
+                          onChange={(e) =>
+                            handleInputChange("phone", e.target.value)
+                          }
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
                       <Label htmlFor="city">
                         {language === "ar" ? "المدينة" : "Ville"} *
                       </Label>
-                      <Select
-                        value={formData.city}
-                        onValueChange={(value) =>
-                          handleInputChange("city", value)
-                        }
-                      >
-                        <SelectTrigger>
-                          <SelectValue
-                            placeholder={
-                              language === "ar"
-                                ? "اختر مدينتك"
-                                : "Sélectionnez votre ville"
-                            }
-                          />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {moroccanCities.map((city) => (
-                            <SelectItem key={city} value={city}>
-                              {city}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
+                      <div className="relative">
+                        <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground z-10" />
+                        <Select
+                          value={formData.city}
+                          onValueChange={(value) =>
+                            handleInputChange("city", value)
+                          }
+                        >
+                          <SelectTrigger className="pl-10">
+                            <SelectValue
+                              placeholder={
+                                language === "ar"
+                                  ? "اختر مدينتك"
+                                  : "Sélectionnez votre ville"
+                              }
+                            />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {moroccanCities.map((city) => (
+                              <SelectItem key={city} value={city}>
+                                {city}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
                     </div>
 
-                    <div>
+                    <div className="space-y-2">
                       <Label htmlFor="address">
                         {language === "ar" ? "العنوان" : "Adresse"}
                       </Label>
@@ -341,50 +411,10 @@ export default function Register() {
                         }
                         placeholder={
                           language === "ar"
-                            ? "الحي، الشارع..."
-                            : "Quartier, rue..."
+                            ? "الحي، الشارع، رقم البيت..."
+                            : "Quartier, rue, numéro..."
                         }
                       />
-                    </div>
-
-                    <div>
-                      <Label>
-                        {language === "ar"
-                          ? "اللغة المفضلة"
-                          : "Langue préférée"}
-                      </Label>
-                      <Select
-                        value={formData.language}
-                        onValueChange={(value) =>
-                          handleInputChange("language", value)
-                        }
-                      >
-                        <SelectTrigger>
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="fr">Français</SelectItem>
-                          <SelectItem value="ar">العربية</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div className="flex gap-2">
-                      <Button
-                        type="button"
-                        variant="outline"
-                        onClick={handlePrevious}
-                        className="flex-1"
-                      >
-                        {language === "ar" ? "السابق" : "Précédent"}
-                      </Button>
-                      <Button
-                        type="button"
-                        onClick={handleNext}
-                        className="flex-1"
-                      >
-                        {language === "ar" ? "التالي" : "Suivant"}
-                      </Button>
                     </div>
                   </div>
                 )}
@@ -392,103 +422,79 @@ export default function Register() {
                 {/* Step 3: Identity Verification */}
                 {step === 3 && (
                   <div className="space-y-6">
-                    <div className="text-center">
-                      <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
-                      <h3 className="text-lg font-semibold mb-2">
+                    <Alert>
+                      <CreditCard className="h-4 w-4" />
+                      <AlertDescription>
                         {language === "ar"
-                          ? "التحقق من الهوية"
-                          : "Vérification d'identité"}
-                      </h3>
-                      <p className="text-muted-foreground text-sm">
-                        {language === "ar"
-                          ? "للحفاظ على أمان المنصة، نحتاج للتحقق من هويتك"
-                          : "Pour la sécurité de la plateforme, nous devons vérifier votre identité"}
-                      </p>
-                    </div>
+                          ? "للعملاء: يجب التحقق من الهوية باستخدام رقم الهوية الوطنية أو جواز السفر"
+                          : "Pour les clients : vérification d'identité requise avec numéro CIN ou passeport"}
+                      </AlertDescription>
+                    </Alert>
 
-                    <div>
-                      <Label>
-                        {language === "ar" ? "نوع الوثيقة" : "Type de document"}{" "}
-                        *
-                      </Label>
-                      <Select
-                        value={formData.idType}
-                        onValueChange={(value) =>
-                          handleInputChange("idType", value)
-                        }
-                      >
-                        <SelectTrigger>
-                          <SelectValue
-                            placeholder={
-                              language === "ar"
-                                ? "اختر نوع الوثيقة"
-                                : "Sélectionnez le type"
-                            }
-                          />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="cin">
-                            {language === "ar"
-                              ? "البطاقة الوطنية (CIN)"
-                              : "Carte d'identité nationale (CIN)"}
-                          </SelectItem>
-                          <SelectItem value="passport">
-                            {language === "ar" ? "جواز السفر" : "Passeport"}
-                          </SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="idNumber">
-                        {language === "ar"
-                          ? "رقم الوثيقة"
-                          : "Numéro du document"}{" "}
-                        *
-                      </Label>
-                      <Input
-                        id="idNumber"
-                        value={formData.idNumber}
-                        onChange={(e) =>
-                          handleInputChange("idNumber", e.target.value)
-                        }
-                        required
-                      />
-                    </div>
-
-                    {/* Document Upload */}
                     <div className="space-y-4">
-                      <div className="border-2 border-dashed border-muted rounded-lg p-6 text-center">
-                        <Upload className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
-                        <p className="text-sm text-muted-foreground mb-2">
+                      <div className="space-y-2">
+                        <Label htmlFor="idType">
                           {language === "ar"
-                            ? "ارفع صورة الوثيقة"
-                            : "Télécharger la photo du document"}
-                        </p>
-                        <Button variant="outline" size="sm">
-                          {language === "ar"
-                            ? "اختر ملف"
-                            : "Choisir un fichier"}
-                        </Button>
+                            ? "نوع الوثيقة"
+                            : "Type de document"}{" "}
+                          *
+                        </Label>
+                        <Select
+                          value={formData.idType}
+                          onValueChange={(value) =>
+                            handleInputChange("idType", value)
+                          }
+                        >
+                          <SelectTrigger>
+                            <SelectValue
+                              placeholder={
+                                language === "ar"
+                                  ? "اختر نوع الوثيقة"
+                                  : "Sélectionnez le type de document"
+                              }
+                            />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="cin">
+                              {language === "ar"
+                                ? "بطاقة الهوية الوطنية (CIN)"
+                                : "Carte d'Identité Nationale (CIN)"}
+                            </SelectItem>
+                            <SelectItem value="passport">
+                              {language === "ar" ? "جواز السفر" : "Passeport"}
+                            </SelectItem>
+                          </SelectContent>
+                        </Select>
                       </div>
 
-                      <div className="border-2 border-dashed border-muted rounded-lg p-6 text-center">
-                        <Camera className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
-                        <p className="text-sm text-muted-foreground mb-2">
+                      <div className="space-y-2">
+                        <Label htmlFor="idNumber">
                           {language === "ar"
-                            ? "التحقق بالوجه"
-                            : "Vérification faciale"}
-                        </p>
-                        <Button variant="outline" size="sm">
-                          {language === "ar"
-                            ? "التقط صورة"
-                            : "Prendre une photo"}
-                        </Button>
+                            ? "رقم الوثيقة"
+                            : "Numéro du document"}{" "}
+                          *
+                        </Label>
+                        <Input
+                          id="idNumber"
+                          value={formData.idNumber}
+                          onChange={(e) =>
+                            handleInputChange("idNumber", e.target.value)
+                          }
+                          placeholder={
+                            formData.idType === "cin"
+                              ? language === "ar"
+                                ? "مثال: A123456"
+                                : "ex: A123456"
+                              : language === "ar"
+                                ? "مثال: AB1234567"
+                                : "ex: AB1234567"
+                          }
+                          required
+                        />
                       </div>
                     </div>
 
-                    {/* Terms and Conditions */}
-                    <div className="space-y-3">
+                    <div className="space-y-4">
                       <div className="flex items-center space-x-2">
                         <Checkbox
                           id="terms"
@@ -506,6 +512,13 @@ export default function Register() {
                                 className="text-primary hover:underline"
                               >
                                 الشروط والأحكام
+                              </Link>{" "}
+                              و{" "}
+                              <Link
+                                to="/privacy"
+                                className="text-primary hover:underline"
+                              >
+                                سياسة الخصوصية
                               </Link>
                             </>
                           ) : (
@@ -515,7 +528,14 @@ export default function Register() {
                                 to="/terms"
                                 className="text-primary hover:underline"
                               >
-                                conditions générales d'utilisation
+                                conditions d'utilisation
+                              </Link>{" "}
+                              et la{" "}
+                              <Link
+                                to="/privacy"
+                                className="text-primary hover:underline"
+                              >
+                                politique de confidentialité
                               </Link>
                             </>
                           )}
@@ -535,31 +555,69 @@ export default function Register() {
                         />
                         <Label htmlFor="marketing" className="text-sm">
                           {language === "ar"
-                            ? "أوافق على تلقي العروض والأخبار"
-                            : "J'accepte de recevoir des offres et actualités"}
+                            ? "أوافق على تلقي العروض والأخبار عبر البريد الإلكتروني"
+                            : "J'accepte de recevoir des offres et actualités par email"}
                         </Label>
                       </div>
                     </div>
-
-                    <div className="flex gap-2">
-                      <Button
-                        type="button"
-                        variant="outline"
-                        onClick={handlePrevious}
-                        className="flex-1"
-                      >
-                        {language === "ar" ? "السابق" : "Précédent"}
-                      </Button>
-                      <Button
-                        type="submit"
-                        className="flex-1"
-                        disabled={!formData.acceptTerms}
-                      >
-                        {language === "ar" ? "إنشاء الحساب" : "Créer le compte"}
-                      </Button>
-                    </div>
                   </div>
                 )}
+
+                {/* Navigation Buttons */}
+                <div className="flex justify-between mt-6">
+                  {step > 1 && (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={handlePrevious}
+                    >
+                      {language === "ar" ? "السابق" : "Précédent"}
+                    </Button>
+                  )}
+                  {step < 3 ? (
+                    <Button
+                      type="submit"
+                      className={step === 1 ? "ml-auto" : ""}
+                      disabled={
+                        (step === 1 &&
+                          (!formData.firstName ||
+                            !formData.lastName ||
+                            !formData.password ||
+                            !formData.confirmPassword ||
+                            formData.password !== formData.confirmPassword)) ||
+                        (step === 2 &&
+                          (!formData.email ||
+                            !formData.phone ||
+                            !formData.city))
+                      }
+                    >
+                      {language === "ar" ? "التالي" : "Suivant"}
+                    </Button>
+                  ) : (
+                    <Button
+                      type="submit"
+                      disabled={
+                        !formData.idType ||
+                        !formData.idNumber ||
+                        !formData.acceptTerms ||
+                        isLoading
+                      }
+                    >
+                      {isLoading ? (
+                        <div className="flex items-center gap-2">
+                          <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+                          {language === "ar"
+                            ? "جاري التحقق..."
+                            : "Vérification..."}
+                        </div>
+                      ) : language === "ar" ? (
+                        "إنشاء الحساب"
+                      ) : (
+                        "Créer le compte"
+                      )}
+                    </Button>
+                  )}
+                </div>
               </form>
             </CardContent>
           </Card>
@@ -574,6 +632,21 @@ export default function Register() {
                 {language === "ar" ? "تسجيل الدخول" : "Se connecter"}
               </Link>
             </p>
+          </div>
+
+          {/* Provider Link */}
+          <div className="text-center mt-4 p-4 bg-muted rounded-lg">
+            <p className="text-sm text-muted-foreground mb-2">
+              {language === "ar"
+                ? "هل تريد تقديم خدمات؟"
+                : "Vous souhaitez proposer des services ?"}
+            </p>
+            <Button asChild variant="outline" size="sm">
+              <Link to="/become-provider">
+                <Shield className="mr-2 h-4 w-4" />
+                {language === "ar" ? "كن مقدم خدمة" : "Devenir prestataire"}
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
