@@ -232,7 +232,7 @@ const translations = {
     "how_it_works.step4_desc": "أموالك محمية حتى التحقق",
 
     // Become Provider
-    "become_provider.title": "كن مقدم خدم��",
+    "become_provider.title": "��ن مقدم خدم��",
     "become_provider.subtitle": "طور نشاطك التجاري مع خدمات",
     "become_provider.benefits": "المزايا",
     "become_provider.benefit1": "الوصول لعملاء جدد",
@@ -244,6 +244,20 @@ const translations = {
     "become_provider.requirement2": "وثائق مهنية",
     "become_provider.requirement3": "تقييم المهارات",
     "become_provider.start_button": "ابدأ التسجيل",
+
+    // Register
+    "register.user_type": "نوع الحساب",
+    "register.client_account": "حساب عميل",
+    "register.provider_account": "حساب مقدم خدمة",
+    "register.client_description": "للبحث عن خدمات وحجز المقدمين",
+    "register.provider_description": "لتقديم خدماتك وكسب المال",
+    "register.facial_verification": "التحقق من الوجه",
+    "register.provider_photo_notice": "للمقدمين: هذه الصورة ستكون صورة ملفك الشخصي",
+    "register.client_photo_notice": "للعملاء: هذه للتحقق الأمني فقط (يمكنك إضافة صورة ملف شخصي لاحقاً)",
+    "register.facial_verification_required": "التحقق من الوجه مطلوب",
+    "register.start_facial_verification": "بدء التحقق من الوجه",
+    "register.facial_verification_success": "تم التحقق من الوجه بنجاح",
+    "register.photo_set_as_profile": "تم تعيين هذه الصورة كصورة ملفك الشخصي",
 
     // Footer
     "footer.about": "حولنا",
