@@ -154,7 +154,7 @@ export default function ClubProRegister() {
                 </li>
                 <li>
                   ✓{" "}
-                  {language === "ar" ? "تفعيل الحساب" : "Activation du compte"}
+                  {language === "ar" ? "��فعيل الحساب" : "Activation du compte"}
                 </li>
                 <li>
                   ✓{" "}
@@ -509,8 +509,8 @@ export default function ClubProRegister() {
                       <CreditCard className="h-4 w-4" />
                       <AlertDescription>
                         {language === "ar"
-                          ? "اشتراك Club Pro: 500 درهم سنوياً"
-                          : "Abonnement Club Pro : 500 DH par an"}
+                          ? "اشتراك Club Pro: 50 درهم شهرياً مع التزام سنة واحدة (600 درهم مجموع)"
+                          : "Abonnement Club Pro : 50 DH par mois avec engagement 1 an (600 DH au total)"}
                       </AlertDescription>
                     </Alert>
 
