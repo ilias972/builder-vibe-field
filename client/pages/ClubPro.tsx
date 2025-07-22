@@ -80,7 +80,7 @@ export default function ClubPro() {
     {
       icon: Shield,
       titleAr: "دعم مخصص",
-      titleFr: "Support dédié",
+      titleFr: "Support d��dié",
       descriptionAr: "فريق دعم مخصص متاح 24/7",
       descriptionFr: "Équipe support dédiée disponible 24/7",
     },
@@ -125,7 +125,7 @@ export default function ClubPro() {
       category: "Rénovation",
     },
     {
-      titleAr: "صيانة فندق شهرية",
+      titleAr: "صيانة ��ندق شهرية",
       titleFr: "Maintenance hôtel mensuelle",
       budget: "8,000 DH/mois",
       duration: "12 mois",
@@ -445,7 +445,7 @@ export default function ClubPro() {
             <CardTitle className="flex items-center text-green-800">
               <TrendingUp className="mr-2 h-6 w-6" />
               {language === "ar"
-                ? "عائد الاستثمار المتوقع"
+                ? "عا��د الاستثمار المتوقع"
                 : "Retour sur investissement"}
             </CardTitle>
           </CardHeader>
@@ -475,8 +475,8 @@ export default function ClubPro() {
             <div className="text-center mt-4">
               <p className="text-green-700">
                 {language === "ar"
-                  ? "مشروع واحد فقط يكفي لتغطية تكلفة العضوية بـ 50 مرة!"
-                  : "Un seul projet suffit pour rentabiliser 50 fois votre adhésion !"}
+                  ? "مشروع واحد فقط يكفي لتغطية تكلفة العضوية بـ 25 مرة!"
+                  : "Un seul projet suffit pour rentabiliser 25 fois votre adhésion !"}
               </p>
             </div>
           </CardContent>
