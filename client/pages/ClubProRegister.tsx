@@ -154,7 +154,7 @@ export default function ClubProRegister() {
                 </li>
                 <li>
                   ✓{" "}
-                  {language === "ar" ? "��فعيل الحساب" : "Activation du compte"}
+                  {language === "ar" ? "تفعيل الحساب" : "Activation du compte"}
                 </li>
                 <li>
                   ✓{" "}
@@ -606,8 +606,8 @@ export default function ClubProRegister() {
                         />
                         <Label htmlFor="payment" className="text-sm">
                           {language === "ar"
-                            ? "أؤكد موافقتي على دفع 500 درهم سنوياً لاشتراك Club Pro"
-                            : "Je confirme accepter de payer 500 DH par an pour l'abonnement Club Pro"}
+                            ? "أؤكد موافقتي على دفع 50 درهم شهرياً مع التزام سنة (600 درهم مجموع) لاشتراك Club Pro"
+                            : "Je confirme accepter de payer 50 DH par mois avec engagement 1 an (600 DH au total) pour l'abonnement Club Pro"}
                         </Label>
                       </div>
                     </div>
