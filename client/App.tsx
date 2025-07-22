@@ -33,6 +33,8 @@ import Careers from "./pages/Careers";
 import Press from "./pages/Press";
 import Partners from "./pages/Partners";
 import ForgotPassword from "./pages/ForgotPassword";
+import ClientRegister from "./pages/ClientRegister";
+import ProviderRegister from "./pages/ProviderRegister";
 
 const queryClient = new QueryClient();
 
@@ -42,7 +44,7 @@ const App = () => (
       <LanguageProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+                <BrowserRouter>
           <Header />
           <main className="min-h-screen">
             <Routes>
@@ -56,7 +58,7 @@ const App = () => (
               <Route path="/b2b" element={<PlaceholderPage />} />
               <Route path="/club-pro" element={<ClubPro />} />
               <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
+                            <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
               <Route path="/become-provider" element={<BecomeProvider />} />
               <Route path="/search" element={<Search />} />
