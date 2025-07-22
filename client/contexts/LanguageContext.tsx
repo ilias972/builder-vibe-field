@@ -115,6 +115,20 @@ const translations = {
     "become_provider.requirement3": "Évaluation des compétences",
     "become_provider.start_button": "Commencer l'inscription",
 
+    // Register
+    "register.user_type": "Type de compte",
+    "register.client_account": "Compte Client",
+    "register.provider_account": "Compte Prestataire",
+    "register.client_description": "Pour rechercher des services et réserver des prestataires",
+    "register.provider_description": "Pour proposer vos services et gagner de l'argent",
+    "register.facial_verification": "Vérification faciale",
+    "register.provider_photo_notice": "Pour les prestataires : cette photo sera votre photo de profil",
+    "register.client_photo_notice": "Pour les clients : ceci est pour la vérification de sécurité uniquement (vous pourrez ajouter une photo de profil plus tard)",
+    "register.facial_verification_required": "Vérification faciale requise",
+    "register.start_facial_verification": "Commencer la vérification faciale",
+    "register.facial_verification_success": "Vérification faciale réussie",
+    "register.photo_set_as_profile": "Cette photo a été définie comme votre photo de profil",
+
     // Footer
     "footer.about": "À Propos",
     "footer.terms": "CGU",
@@ -151,7 +165,7 @@ const translations = {
     "home.featured_providers": "مقدمو الخدمات المميزون",
     "home.testimonials": "شهادات العملاء",
     "home.how_it_works": "كيف يعمل",
-    "home.join_providers": "انضم إ��ى مقدمي الخدمات",
+    "home.join_providers": "انضم إلى مقدمي الخدمات",
     "home.join_providers_desc": "طور نشاطك التجاري مع منصتنا الآمنة",
 
     // Services
