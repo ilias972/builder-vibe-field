@@ -38,7 +38,7 @@ import {
 } from "lucide-react";
 
 export default function SOS() {
-  const { language } = useLanguage();
+  const { t, language } = useLanguage();
   const [selectedEmergency, setSelectedEmergency] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
@@ -54,7 +54,7 @@ export default function SOS() {
       icon: Shield,
       color: "bg-blue-100 text-blue-600 border-blue-200",
       description: {
-        ar: "الإبلاغ عن جرائم، حوادث، أو طلب المساعدة الأمنية",
+        ar: "الإبلاغ عن جرائم، حوادث، أو ط��ب المساعدة الأمنية",
         fr: "Signaler des crimes, accidents ou demander une assistance sécuritaire",
       },
       examples: {
