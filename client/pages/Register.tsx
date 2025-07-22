@@ -41,6 +41,7 @@ import {
 
 export default function Register() {
   const { t, language } = useLanguage();
+  const [searchParams] = useSearchParams();
   const [userType, setUserType] = useState<"client" | "provider">("client");
   const [step, setStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
@@ -353,7 +354,7 @@ export default function Register() {
                         ? "اختر خدماتك وارفع الوثائق المطلوبة"
                         : "Sélectionnez vos services et téléchargez les documents requis"
                       : language === "ar"
-                        ? "تحقق من هويتك باستخدام وثيقة رسمية"
+                        ? "تحق�� من هويتك باستخدام وثيقة رسمية"
                         : "Vérifiez votre identité avec un document officiel")}
                   {userType === "provider" &&
                     step === 5 &&
@@ -380,7 +381,7 @@ export default function Register() {
                       <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-2">
                           <Label htmlFor="firstName">
-                            {language === "ar" ? "الاسم الأول" : "Prénom"} *
+                            {language === "ar" ? "الاسم الأول" : "Pr��nom"} *
                           </Label>
                           <Input
                             id="firstName"
