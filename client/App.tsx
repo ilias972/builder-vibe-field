@@ -60,6 +60,7 @@ const App = () => (
               <Route path="/provider/:id" element={<ProviderProfile />} />
               <Route path="/b2b" element={<PlaceholderPage />} />
               <Route path="/club-pro" element={<ClubPro />} />
+              <Route path="/club-pro/register" element={<ClubProRegister />} />
               <Route path="/about" element={<About />} />
                             <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
