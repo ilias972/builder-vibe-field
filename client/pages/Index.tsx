@@ -14,6 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { SmartSearch } from "@/components/SmartSearch";
 import { RecommendationsSection } from "@/components/FavoritesSystem";
+import { Newsletter } from "@/components/Newsletter";
 import {
   Search,
   MapPin,
