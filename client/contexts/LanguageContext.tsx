@@ -119,15 +119,20 @@ const translations = {
     "register.user_type": "Type de compte",
     "register.client_account": "Compte Client",
     "register.provider_account": "Compte Prestataire",
-    "register.client_description": "Pour rechercher des services et réserver des prestataires",
-    "register.provider_description": "Pour proposer vos services et gagner de l'argent",
+    "register.client_description":
+      "Pour rechercher des services et réserver des prestataires",
+    "register.provider_description":
+      "Pour proposer vos services et gagner de l'argent",
     "register.facial_verification": "Vérification faciale",
-    "register.provider_photo_notice": "Pour les prestataires : cette photo sera votre photo de profil",
-    "register.client_photo_notice": "Pour les clients : ceci est pour la vérification de sécurité uniquement (vous pourrez ajouter une photo de profil plus tard)",
+    "register.provider_photo_notice":
+      "Pour les prestataires : cette photo sera votre photo de profil",
+    "register.client_photo_notice":
+      "Pour les clients : ceci est pour la vérification de sécurité uniquement (vous pourrez ajouter une photo de profil plus tard)",
     "register.facial_verification_required": "Vérification faciale requise",
     "register.start_facial_verification": "Commencer la vérification faciale",
     "register.facial_verification_success": "Vérification faciale réussie",
-    "register.photo_set_as_profile": "Cette photo a été définie comme votre photo de profil",
+    "register.photo_set_as_profile":
+      "Cette photo a été définie comme votre photo de profil",
 
     // Footer
     "footer.about": "À Propos",
@@ -252,8 +257,10 @@ const translations = {
     "register.client_description": "للبحث عن خدمات وحجز المقدمين",
     "register.provider_description": "لتقديم خدماتك وكسب المال",
     "register.facial_verification": "التحقق من الوجه",
-    "register.provider_photo_notice": "للمقدمين: هذه الصورة ستكون صورة ملفك الشخصي",
-    "register.client_photo_notice": "للعملاء: هذه للتحقق الأمني فقط (يمكنك إضافة صورة ملف شخصي لاحقاً)",
+    "register.provider_photo_notice":
+      "للمقدمين: هذه الصورة ستكون صورة ملفك الشخصي",
+    "register.client_photo_notice":
+      "للعملاء: هذه للتحقق الأمني فقط (يمكنك إضافة صورة ملف شخصي لاحقاً)",
     "register.facial_verification_required": "التحقق من الوجه مطلوب",
     "register.start_facial_verification": "بدء التحقق من الوجه",
     "register.facial_verification_success": "تم التحقق من الوجه بنجاح",

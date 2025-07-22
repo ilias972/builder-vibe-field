@@ -313,7 +313,9 @@ export default function ClubPro() {
                   {language === "ar" ? "التزام سنة واحدة" : "Engagement 1 an"}
                 </div>
                 <div className="text-sm text-green-600 font-medium">
-                  {language === "ar" ? "600 درهم مجموع السنة" : "600 DH au total pour l'année"}
+                  {language === "ar"
+                    ? "600 درهم مجموع السنة"
+                    : "600 DH au total pour l'année"}
                 </div>
               </div>
 
@@ -454,7 +456,9 @@ export default function ClubPro() {
               <div>
                 <div className="text-2xl font-bold text-green-600">600 DH</div>
                 <div className="text-sm text-green-700">
-                  {language === "ar" ? "كلفة العضوية السنوية" : "Coût d'adhésion annuel"}
+                  {language === "ar"
+                    ? "كلفة العضوية السنوية"
+                    : "Coût d'adhésion annuel"}
                 </div>
               </div>
               <div>

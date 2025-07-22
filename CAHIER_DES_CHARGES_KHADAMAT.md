@@ -9,6 +9,7 @@
 ## 🏗️ **ARCHITECTURE TECHNIQUE**
 
 ### **Stack Technologique**
+
 - **Frontend**: React 18 + TypeScript + Vite
 - **UI Framework**: Tailwind CSS + Radix UI
 - **Routing**: React Router 6 (SPA)
@@ -18,6 +19,7 @@
 - **Package Manager**: npm
 
 ### **Structure des Fichiers**
+
 ```
 /client
   /components
@@ -47,6 +49,7 @@
 ## 👥 **TYPES D'UTILISATEURS**
 
 ### **1. CLIENTS**
+
 - **Inscription**: Nom, prénom, téléphone, CIN/Passeport + vérification faciale
 - **Fonctionnalités**:
   - Recherche et réservation de services
@@ -57,6 +60,7 @@
   - Accès aux urgences SOS 24/7
 
 ### **2. PRESTATAIRES**
+
 - **Inscription**: Mêmes données que clients + vérification faciale (devient photo de profil)
 - **Fonctionnalités**:
   - Réception et réponse aux demandes
@@ -66,6 +70,7 @@
   - Possibilité d'adhérer au Club Pro
 
 ### **3. MEMBRES CLUB PRO** (Prestataires uniquement)
+
 - **Coût**: 50 DH/mois avec engagement 1 an (600 DH total)
 - **Documents obligatoires**:
   - Patente professionnelle
@@ -84,6 +89,7 @@
 ## 🔐 **SYSTÈME D'INSCRIPTION ET VÉRIFICATION**
 
 ### **Processus d'Inscription (4 étapes)**
+
 1. **Sélection du type de compte** (Client ou Prestataire)
 2. **Informations personnelles** (Nom, prénom, mot de passe)
 3. **Numéro de téléphone** (Uniquement par SMS - pas d'email)
@@ -94,6 +100,7 @@
    - **Clients**: Photo faciale pour sécurité uniquement
 
 ### **Documents de Vérification**
+
 - **Clients & Prestataires**: CIN ou Passeport
 - **Club Pro (en plus)**: Patente + RC + Assurance + ICE
 
@@ -102,10 +109,12 @@
 ## 🌍 **SYSTÈME BILINGUE**
 
 ### **Langues Supportées**
+
 - **Français** (par défaut)
 - **العربية** avec support RTL complet
 
 ### **Traductions Complètes**
+
 - Interface utilisateur complète
 - Contenus dynamiques
 - Messages d'erreur et confirmations
@@ -116,6 +125,7 @@
 ## 🧭 **NAVIGATION ET STRUCTURE**
 
 ### **Header (Barre de Navigation)**
+
 - **Logo**: Logo circulaire Khadamat
 - **Navigation**:
   - Accueil
@@ -128,6 +138,7 @@
   - Inscription
 
 ### **Pages Principales**
+
 - **Accueil** (`/`) - Page d'accueil avec recherche intelligente
 - **Inscription** (`/register`) - Inscription unifiée
 - **Projet** (`/project`) - Publication de projets clients
@@ -138,16 +149,19 @@
 - **À propos** (`/about`) - Présentation entreprise
 
 ### **Pages Légales**
+
 - **CGU** (`/terms`) - Conditions d'utilisation
 - **Confidentialité** (`/privacy`) - Politique de confidentialité
 - **FAQ** (`/faq`) - Questions fréquentes
 
 ### **Pages Corporate**
+
 - **Carrières** (`/careers`) - Offres d'emploi
 - **Presse** (`/press`) - Kit média et communiqués
 - **Partenaires** (`/partners`) - Partenariats
 
 ### **Navigation Mobile**
+
 - **Tab Bar fixe** avec 5 onglets:
   1. Accueil
   2. Recherche
@@ -160,6 +174,7 @@
 ## 🔍 **FONCTIONNALITÉS PRINCIPALES**
 
 ### **1. Recherche Intelligente**
+
 - **Autocomplete** en temps réel
 - **Suggestions** de services populaires
 - **Recherche vocale** (FR/AR)
@@ -167,6 +182,7 @@
 - **Géolocalisation** automatique (rayon 30km)
 
 ### **2. Système de Projets**
+
 - **Publication** par les clients
 - **Informations requises**:
   - Métier recherché
@@ -177,6 +193,7 @@
 - **Réponses** des prestataires avec propositions
 
 ### **3. Messagerie Intégrée**
+
 - **Chat temps réel** entre clients et prestataires
 - **Appels audio/vidéo** via WebRTC
 - **Partage de fichiers** (documents, photos)
@@ -184,6 +201,7 @@
 - **Historique** des conversations
 
 ### **4. Système de Paiement Escrow**
+
 - **Blocage** du montant à la réservation
 - **Libération** après validation du service
 - **Méthodes**: Carte bancaire, virement, mobile money
@@ -191,6 +209,7 @@
 - **Remboursement** automatique en cas d'annulation
 
 ### **5. Service d'Urgence SOS 24/7**
+
 - **Numéros officiels** Maroc:
   - Police: 19
   - Pompiers/SAMU: 15
@@ -200,6 +219,7 @@
 - **Services privés** d'urgence (plomberie, électricité)
 
 ### **6. Newsletter**
+
 - **Inscription** sans compte obligatoire
 - **Localisation** par ville
 - **Contenu**:
@@ -213,15 +233,18 @@
 ## 💰 **MODÈLE ÉCONOMIQUE**
 
 ### **Commission Standard**
+
 - **Pourcentage** sur chaque transaction complétée
 - **Paiement** retenu jusqu'à validation du service
 
 ### **Club Pro**
+
 - **Coût**: 50 DH/mois (engagement 1 an = 600 DH total)
 - **Commission réduite** pour les membres
 - **Accès exclusif** aux projets haute valeur
 
 ### **Services Additionnels**
+
 - **Vérification express** des documents
 - **Publicité** mise en avant des profils
 - **Formation** des prestataires
@@ -231,6 +254,7 @@
 ## 🎨 **DESIGN SYSTEM**
 
 ### **Couleurs Principales**
+
 ```css
 Primary: #E97B47 (Orange Maroc)
 Secondary: #2B5D6B (Bleu profond)
@@ -242,11 +266,13 @@ Surface: #F8FAFC
 ```
 
 ### **Typographie**
+
 - **Titres**: Police système (Inter/SF Pro)
 - **Corps**: Police système
 - **Arabe**: Support RTL natif
 
 ### **Composants UI**
+
 - **Cartes** avec ombres subtiles
 - **Boutons** avec états hover/focus
 - **Formulaires** avec validation temps réel
@@ -258,16 +284,19 @@ Surface: #F8FAFC
 ## 📱 **RESPONSIVE DESIGN**
 
 ### **Breakpoints**
+
 - **Mobile**: < 768px
 - **Tablet**: 768px - 1024px
 - **Desktop**: > 1024px
 
 ### **Navigation Mobile**
+
 - **Tab Bar** fixe en bas
 - **Menu hamburger** pour options secondaires
 - **Gestures** tactiles (swipe, pinch, tap)
 
 ### **Optimisations**
+
 - **Images** adaptatives (WebP + fallback)
 - **Lazy loading** des contenus
 - **Offline** cache pour pages essentielles
@@ -278,17 +307,20 @@ Surface: #F8FAFC
 ## 🔒 **SÉCURITÉ ET CONFORMITÉ**
 
 ### **Vérification d'Identité**
+
 - **Documents** officiels obligatoires
 - **Vérification faciale** avec liveness detection
 - **Validation manuelle** par équipe sécurité
 
 ### **Protection des Données**
+
 - **Chiffrement** SSL/TLS
 - **Conformité** RGPD/loi marocaine
 - **Droit à l'oubli** implémenté
 - **Audit** de sécurité régulier
 
 ### **Système de Confiance**
+
 - **Évaluations** bidirectionnelles
 - **Signalement** de comportements inappropriés
 - **Suspension** automatique des comptes problématiques
@@ -299,16 +331,19 @@ Surface: #F8FAFC
 ## 🌐 **INTÉGRATIONS TIERCES**
 
 ### **Paiements**
+
 - **Banques** marocaines (CIH, BMCE, Attijariwafa)
 - **Mobile Money** (Orange Money, Maroc Telecom)
 - **Cartes** internationales (Visa, Mastercard)
 
 ### **Communication**
+
 - **SMS** pour vérifications
 - **Email** pour notifications importantes
 - **Push** notifications (si app mobile future)
 
 ### **Géolocalisation**
+
 - **Maps** pour localisation des services
 - **Géofencing** pour rayon de service 30km
 - **Adresses** autocomplete
@@ -318,12 +353,14 @@ Surface: #F8FAFC
 ## 📊 **ANALYTICS ET MONITORING**
 
 ### **Métriques Business**
+
 - **Nombre** d'inscriptions (clients/prestataires)
 - **Volume** de transactions
 - **Taux** de conversion
 - **Satisfaction** utilisateurs (NPS)
 
 ### **Métriques Techniques**
+
 - **Performance** (Core Web Vitals)
 - **Disponibilité** (uptime 99.9%)
 - **Erreurs** et crashes
@@ -334,6 +371,7 @@ Surface: #F8FAFC
 ## 🚀 **ROADMAP ET ÉVOLUTIONS**
 
 ### **Phase 1** (Actuelle)
+
 - ✅ Plateforme web responsive
 - ✅ Inscription et vérification
 - ✅ Système de projets
@@ -341,6 +379,7 @@ Surface: #F8FAFC
 - ✅ SOS 24/7
 
 ### **Phase 2** (Future)
+
 - 📱 Application mobile native
 - 🤖 Chatbot IA pour support
 - 📈 Analytics avancées
@@ -348,6 +387,7 @@ Surface: #F8FAFC
 - 💳 Wallet intégré
 
 ### **Phase 3** (Long terme)
+
 - 🌍 Expansion régionale (Afrique)
 - 🏢 Version entreprise dédiée
 - 📊 Marketplace B2B
@@ -359,12 +399,14 @@ Surface: #F8FAFC
 ## 📞 **SUPPORT ET MAINTENANCE**
 
 ### **Support Client**
+
 - **Chat** en direct 24/7
 - **Email** support@khadamat.ma
 - **Téléphone** +212 5XX-XXX-XXX
 - **FAQ** automatisée
 
 ### **Maintenance Technique**
+
 - **Déploiement** continu (CI/CD)
 - **Monitoring** 24/7
 - **Backup** quotidien
@@ -375,12 +417,14 @@ Surface: #F8FAFC
 ## 📈 **KPIs ET OBJECTIFS**
 
 ### **Objectifs Business**
+
 - **10,000** utilisateurs actifs mois 1
 - **100,000** transactions an 1
 - **500** membres Club Pro an 1
 - **4.5/5** satisfaction moyenne
 
 ### **Objectifs Techniques**
+
 - **< 2s** temps de chargement
 - **99.9%** disponibilité
 - **< 0.1%** taux d'erreur
@@ -391,12 +435,14 @@ Surface: #F8FAFC
 ## 🏛️ **CONFORMITÉ LÉGALE MAROC**
 
 ### **Réglementations**
+
 - **Loi** sur la protection des données personnelles
 - **Code** de commerce électronique
 - **Réglementation** bancaire (Bank Al-Maghrib)
 - **Droit** du travail pour prestataires
 
 ### **Obligations**
+
 - **Déclaration** CNDP (Commission Nationale de contrôle)
 - **Registre** de commerce électronique
 - **TVA** sur les commissions
@@ -410,8 +456,8 @@ La plateforme **Khadamat** représente une solution complète et sécurisée pou
 
 **Version**: 1.0  
 **Date**: Décembre 2024  
-**Statut**: En production  
+**Statut**: En production
 
 ---
 
-*Ce document constitue la spécification technique et fonctionnelle complète de la plateforme Khadamat. Il servira de référence pour le développement, la maintenance et les évolutions futures du projet.*
+_Ce document constitue la spécification technique et fonctionnelle complète de la plateforme Khadamat. Il servira de référence pour le développement, la maintenance et les évolutions futures du projet._

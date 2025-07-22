@@ -80,7 +80,7 @@ export default function Register() {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      setFormData(prev => ({ ...prev, facialVerificationCompleted: true }));
+      setFormData((prev) => ({ ...prev, facialVerificationCompleted: true }));
     }, 2000);
   };
 
@@ -182,7 +182,9 @@ export default function Register() {
                 <Button asChild variant="outline" size="sm" className="w-full">
                   <Link to="/club-pro/register">
                     <Shield className="mr-2 h-4 w-4" />
-                    {language === "ar" ? "انضم إلى Club Pro" : "Rejoindre Club Pro"}
+                    {language === "ar"
+                      ? "انضم إلى Club Pro"
+                      : "Rejoindre Club Pro"}
                   </Link>
                 </Button>
               </div>
@@ -216,26 +218,28 @@ export default function Register() {
           {step > 1 && (
             <div className="mb-8">
               <div className="flex items-center justify-between">
-                {Array.from({ length: maxSteps }, (_, i) => i + 1).map((stepNumber) => (
-                  <div key={stepNumber} className="flex items-center">
-                    <div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
-                        step >= stepNumber + 1
-                          ? "bg-primary text-primary-foreground"
-                          : "bg-muted text-muted-foreground"
-                      }`}
-                    >
-                      {stepNumber}
-                    </div>
-                    {stepNumber < maxSteps && (
+                {Array.from({ length: maxSteps }, (_, i) => i + 1).map(
+                  (stepNumber) => (
+                    <div key={stepNumber} className="flex items-center">
                       <div
-                        className={`w-12 h-1 mx-2 ${
-                          step > stepNumber + 1 ? "bg-primary" : "bg-muted"
+                        className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                          step >= stepNumber + 1
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-muted text-muted-foreground"
                         }`}
-                      />
-                    )}
-                  </div>
-                ))}
+                      >
+                        {stepNumber}
+                      </div>
+                      {stepNumber < maxSteps && (
+                        <div
+                          className={`w-12 h-1 mx-2 ${
+                            step > stepNumber + 1 ? "bg-primary" : "bg-muted"
+                          }`}
+                        />
+                      )}
+                    </div>
+                  ),
+                )}
               </div>
               <div className="mt-2 text-center">
                 <p className="text-sm text-muted-foreground">
@@ -282,24 +286,37 @@ export default function Register() {
                 {/* Step 1: User Type Selection */}
                 {step === 1 && (
                   <div className="space-y-6">
-                    <Tabs value={userType} onValueChange={(value) => setUserType(value as "client" | "provider")}>
+                    <Tabs
+                      value={userType}
+                      onValueChange={(value) =>
+                        setUserType(value as "client" | "provider")
+                      }
+                    >
                       <TabsList className="grid w-full grid-cols-2">
-                        <TabsTrigger value="client" className="flex items-center gap-2">
+                        <TabsTrigger
+                          value="client"
+                          className="flex items-center gap-2"
+                        >
                           <User className="h-4 w-4" />
                           {language === "ar" ? "عميل" : "Client"}
                         </TabsTrigger>
-                        <TabsTrigger value="provider" className="flex items-center gap-2">
+                        <TabsTrigger
+                          value="provider"
+                          className="flex items-center gap-2"
+                        >
                           <Briefcase className="h-4 w-4" />
                           {language === "ar" ? "مقدم خدمة" : "Prestataire"}
                         </TabsTrigger>
                       </TabsList>
-                      
+
                       <TabsContent value="client" className="mt-6">
                         <Card className="border-blue-200 bg-blue-50">
                           <CardContent className="p-6 text-center">
                             <User className="h-12 w-12 mx-auto text-blue-600 mb-4" />
                             <h3 className="font-semibold text-blue-900 mb-2">
-                              {language === "ar" ? "حساب عميل" : "Compte Client"}
+                              {language === "ar"
+                                ? "حساب عميل"
+                                : "Compte Client"}
                             </h3>
                             <p className="text-sm text-blue-700 mb-4">
                               {language === "ar"
@@ -309,27 +326,41 @@ export default function Register() {
                             <div className="space-y-2 text-sm text-blue-800">
                               <div className="flex items-center gap-2">
                                 <CheckCircle className="h-4 w-4" />
-                                <span>{language === "ar" ? "بحث عن خدمات" : "Recherche de services"}</span>
+                                <span>
+                                  {language === "ar"
+                                    ? "بحث عن خدمات"
+                                    : "Recherche de services"}
+                                </span>
                               </div>
                               <div className="flex items-center gap-2">
                                 <CheckCircle className="h-4 w-4" />
-                                <span>{language === "ar" ? "حجز المقدمين" : "Réservation de prestataires"}</span>
+                                <span>
+                                  {language === "ar"
+                                    ? "حجز المقدمين"
+                                    : "Réservation de prestataires"}
+                                </span>
                               </div>
                               <div className="flex items-center gap-2">
                                 <CheckCircle className="h-4 w-4" />
-                                <span>{language === "ar" ? "دفع آمن" : "Paiement sécurisé"}</span>
+                                <span>
+                                  {language === "ar"
+                                    ? "دفع آمن"
+                                    : "Paiement sécurisé"}
+                                </span>
                               </div>
                             </div>
                           </CardContent>
                         </Card>
                       </TabsContent>
-                      
+
                       <TabsContent value="provider" className="mt-6">
                         <Card className="border-orange-200 bg-orange-50">
                           <CardContent className="p-6 text-center">
                             <Briefcase className="h-12 w-12 mx-auto text-orange-600 mb-4" />
                             <h3 className="font-semibold text-orange-900 mb-2">
-                              {language === "ar" ? "حساب مقدم خدمة" : "Compte Prestataire"}
+                              {language === "ar"
+                                ? "حساب مقدم خدمة"
+                                : "Compte Prestataire"}
                             </h3>
                             <p className="text-sm text-orange-700 mb-4">
                               {language === "ar"
@@ -339,19 +370,35 @@ export default function Register() {
                             <div className="space-y-2 text-sm text-orange-800">
                               <div className="flex items-center gap-2">
                                 <CheckCircle className="h-4 w-4" />
-                                <span>{language === "ar" ? "تقديم خدمات" : "Proposer des services"}</span>
+                                <span>
+                                  {language === "ar"
+                                    ? "تقديم خدمات"
+                                    : "Proposer des services"}
+                                </span>
                               </div>
                               <div className="flex items-center gap-2">
                                 <CheckCircle className="h-4 w-4" />
-                                <span>{language === "ar" ? "استلام طلبات" : "Recevoir des demandes"}</span>
+                                <span>
+                                  {language === "ar"
+                                    ? "استلام طلبات"
+                                    : "Recevoir des demandes"}
+                                </span>
                               </div>
                               <div className="flex items-center gap-2">
                                 <CheckCircle className="h-4 w-4" />
-                                <span>{language === "ar" ? "كسب المال" : "Gagner de l'argent"}</span>
+                                <span>
+                                  {language === "ar"
+                                    ? "كسب المال"
+                                    : "Gagner de l'argent"}
+                                </span>
                               </div>
                               <div className="flex items-center gap-2">
                                 <CheckCircle className="h-4 w-4" />
-                                <span>{language === "ar" ? "صورة الملف الشخصي من التحقق" : "Photo de profil via vérification"}</span>
+                                <span>
+                                  {language === "ar"
+                                    ? "صورة الملف الشخصي من التحقق"
+                                    : "Photo de profil via vérification"}
+                                </span>
                               </div>
                             </div>
                           </CardContent>
@@ -380,7 +427,8 @@ export default function Register() {
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="lastName">
-                          {language === "ar" ? "اسم العائلة" : "Nom de famille"} *
+                          {language === "ar" ? "اسم العائلة" : "Nom de famille"}{" "}
+                          *
                         </Label>
                         <Input
                           id="lastName"
@@ -427,7 +475,8 @@ export default function Register() {
                       <Label htmlFor="confirmPassword">
                         {language === "ar"
                           ? "تأكيد كلمة المرور"
-                          : "Confirmer le mot de passe"} *
+                          : "Confirmer le mot de passe"}{" "}
+                        *
                       </Label>
                       <Input
                         id="confirmPassword"
@@ -458,7 +507,8 @@ export default function Register() {
                       <Label htmlFor="phone">
                         {language === "ar"
                           ? "رقم الهاتف"
-                          : "Numéro de téléphone"} *
+                          : "Numéro de téléphone"}{" "}
+                        *
                       </Label>
                       <div className="relative">
                         <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -498,16 +548,23 @@ export default function Register() {
                     {/* Identity Verification */}
                     <div className="space-y-4">
                       <h4 className="font-medium">
-                        {language === "ar" ? "التحقق من الهوية" : "Vérification d'identité"}
+                        {language === "ar"
+                          ? "التحقق من الهوية"
+                          : "Vérification d'identité"}
                       </h4>
-                      
+
                       <div className="space-y-2">
                         <Label htmlFor="idType">
-                          {language === "ar" ? "نوع الوثيقة" : "Type de document"} *
+                          {language === "ar"
+                            ? "نوع الوثيقة"
+                            : "Type de document"}{" "}
+                          *
                         </Label>
                         <Select
                           value={formData.idType}
-                          onValueChange={(value) => handleInputChange("idType", value)}
+                          onValueChange={(value) =>
+                            handleInputChange("idType", value)
+                          }
                         >
                           <SelectTrigger>
                             <SelectValue
@@ -533,12 +590,17 @@ export default function Register() {
 
                       <div className="space-y-2">
                         <Label htmlFor="idNumber">
-                          {language === "ar" ? "رقم الوثيقة" : "Numéro du document"} *
+                          {language === "ar"
+                            ? "رقم الوثيقة"
+                            : "Numéro du document"}{" "}
+                          *
                         </Label>
                         <Input
                           id="idNumber"
                           value={formData.idNumber}
-                          onChange={(e) => handleInputChange("idNumber", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("idNumber", e.target.value)
+                          }
                           placeholder={
                             formData.idType === "cin"
                               ? language === "ar"
@@ -556,20 +618,21 @@ export default function Register() {
                     {/* Facial Verification */}
                     <div className="space-y-4">
                       <h4 className="font-medium">
-                        {language === "ar" ? "التحقق من الوجه" : "Vérification faciale"}
+                        {language === "ar"
+                          ? "التحقق من الوجه"
+                          : "Vérification faciale"}
                       </h4>
-                      
+
                       <Alert>
                         <Camera className="h-4 w-4" />
                         <AlertDescription>
-                          {userType === "provider" 
-                            ? (language === "ar"
-                                ? "للمقدمين: هذه الصورة ستكون صورة ملفك الشخصي"
-                                : "Pour les prestataires : cette photo sera votre photo de profil")
-                            : (language === "ar"
-                                ? "للعملاء: هذه للتحقق الأمني فقط (يمكنك إضافة صورة ملف ��خصي لاحقاً)"
-                                : "Pour les clients : ceci est pour la vérification de sécurité uniquement (vous pourrez ajouter une photo de profil plus tard)")
-                          }
+                          {userType === "provider"
+                            ? language === "ar"
+                              ? "للمقدمين: هذه الصورة ستكون صورة ملفك الشخصي"
+                              : "Pour les prestataires : cette photo sera votre photo de profil"
+                            : language === "ar"
+                              ? "للعملاء: هذه للتحقق الأمني فقط (يمكنك إضافة صورة ملف ��خصي لاحقاً)"
+                              : "Pour les clients : ceci est pour la vérification de sécurité uniquement (vous pourrez ajouter une photo de profil plus tard)"}
                         </AlertDescription>
                       </Alert>
 
@@ -597,7 +660,9 @@ export default function Register() {
                                 {isLoading ? (
                                   <div className="flex items-center gap-2">
                                     <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
-                                    {language === "ar" ? "جاري التحقق..." : "Vérification..."}
+                                    {language === "ar"
+                                      ? "جاري التحقق..."
+                                      : "Vérification..."}
                                   </div>
                                 ) : (
                                   <>
@@ -685,7 +750,10 @@ export default function Register() {
                           id="marketing"
                           checked={formData.acceptMarketing}
                           onCheckedChange={(checked) =>
-                            handleInputChange("acceptMarketing", checked as boolean)
+                            handleInputChange(
+                              "acceptMarketing",
+                              checked as boolean,
+                            )
                           }
                         />
                         <Label htmlFor="marketing" className="text-sm">
