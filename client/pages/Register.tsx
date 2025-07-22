@@ -104,7 +104,10 @@ export default function Register() {
     "air_conditioning",
   ];
 
-  const handleInputChange = (field: string, value: string | boolean | File | File[]) => {
+  const handleInputChange = (
+    field: string,
+    value: string | boolean | File | File[],
+  ) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
@@ -166,7 +169,10 @@ export default function Register() {
 
   const maxSteps = userType === "client" ? 3 : 4;
 
-  if ((userType === "client" && step === 4) || (userType === "provider" && step === 5)) {
+  if (
+    (userType === "client" && step === 4) ||
+    (userType === "provider" && step === 5)
+  ) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-accent/10 p-4">
         <Card className="w-full max-w-md">
@@ -236,11 +242,18 @@ export default function Register() {
             <Card className="mb-8">
               <CardHeader>
                 <CardTitle>
-                  {language === "ar" ? "اختر نوع الحساب" : "Choisissez votre type de compte"}
+                  {language === "ar"
+                    ? "اختر نوع الحساب"
+                    : "Choisissez votre type de compte"}
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <Tabs value={userType} onValueChange={(value) => setUserType(value as "client" | "provider")}>
+                <Tabs
+                  value={userType}
+                  onValueChange={(value) =>
+                    setUserType(value as "client" | "provider")
+                  }
+                >
                   <TabsList className="grid w-full grid-cols-2">
                     <TabsTrigger value="client">
                       <UserCheck className="mr-2 h-4 w-4" />
@@ -268,7 +281,9 @@ export default function Register() {
                     <div className="text-center p-4 bg-orange-50 rounded-lg">
                       <Shield className="h-8 w-8 mx-auto text-orange-600 mb-2" />
                       <h3 className="font-medium text-orange-900 mb-1">
-                        {language === "ar" ? "حساب مقدم خدمة" : "Compte Prestataire"}
+                        {language === "ar"
+                          ? "حساب مقدم خدمة"
+                          : "Compte Prestataire"}
                       </h3>
                       <p className="text-sm text-orange-700">
                         {language === "ar"
@@ -286,26 +301,28 @@ export default function Register() {
           {step > 1 && (
             <div className="mb-8">
               <div className="flex items-center justify-between">
-                {Array.from({ length: maxSteps }, (_, i) => i + 1).map((stepNumber) => (
-                  <div key={stepNumber} className="flex items-center">
-                    <div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
-                        step >= stepNumber + 1
-                          ? "bg-primary text-primary-foreground"
-                          : "bg-muted text-muted-foreground"
-                      }`}
-                    >
-                      {stepNumber}
-                    </div>
-                    {stepNumber < maxSteps && (
+                {Array.from({ length: maxSteps }, (_, i) => i + 1).map(
+                  (stepNumber) => (
+                    <div key={stepNumber} className="flex items-center">
                       <div
-                        className={`w-12 h-1 mx-2 ${
-                          step > stepNumber + 1 ? "bg-primary" : "bg-muted"
+                        className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                          step >= stepNumber + 1
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-muted text-muted-foreground"
                         }`}
-                      />
-                    )}
-                  </div>
-                ))}
+                      >
+                        {stepNumber}
+                      </div>
+                      {stepNumber < maxSteps && (
+                        <div
+                          className={`w-12 h-1 mx-2 ${
+                            step > stepNumber + 1 ? "bg-primary" : "bg-muted"
+                          }`}
+                        />
+                      )}
+                    </div>
+                  ),
+                )}
               </div>
               <div className="mt-2 text-center">
                 <p className="text-sm text-muted-foreground">
@@ -329,7 +346,8 @@ export default function Register() {
                     (language === "ar"
                       ? "أدخل معلومات الاتصال والعنوان"
                       : "Entrez vos coordonnées et adresse")}
-                  {((userType === "client" && step === 4) || (userType === "provider" && step === 4)) &&
+                  {((userType === "client" && step === 4) ||
+                    (userType === "provider" && step === 4)) &&
                     (userType === "provider"
                       ? language === "ar"
                         ? "اختر خدماتك وارفع الوثائق المطلوبة"
@@ -337,7 +355,8 @@ export default function Register() {
                       : language === "ar"
                         ? "تحقق من هويتك باستخدام وثيقة رسمية"
                         : "Vérifiez votre identité avec un document officiel")}
-                  {userType === "provider" && step === 5 &&
+                  {userType === "provider" &&
+                    step === 5 &&
                     (language === "ar"
                       ? "تحقق من هويتك باستخدام وثيقة رسمية"
                       : "Vérifiez votre identité avec un document officiel")}
@@ -346,7 +365,8 @@ export default function Register() {
               <CardContent>
                 <form
                   onSubmit={
-                    (userType === "client" && step === 4) || (userType === "provider" && step === 5)
+                    (userType === "client" && step === 4) ||
+                    (userType === "provider" && step === 5)
                       ? handleSubmit
                       : (e) => {
                           e.preventDefault();
@@ -373,7 +393,9 @@ export default function Register() {
                         </div>
                         <div className="space-y-2">
                           <Label htmlFor="lastName">
-                            {language === "ar" ? "اسم العائلة" : "Nom de famille"}{" "}
+                            {language === "ar"
+                              ? "اسم العائلة"
+                              : "Nom de famille"}{" "}
                             *
                           </Label>
                           <Input
@@ -389,7 +411,8 @@ export default function Register() {
 
                       <div className="space-y-2">
                         <Label htmlFor="password">
-                          {language === "ar" ? "كلمة المرو��" : "Mot de passe"} *
+                          {language === "ar" ? "كلمة المرو��" : "Mot de passe"}{" "}
+                          *
                         </Label>
                         <div className="relative">
                           <Input
@@ -532,7 +555,8 @@ export default function Register() {
                   )}
 
                   {/* Step 4: Services & Documents (Provider) / Identity Verification (Client) */}
-                  {((userType === "provider" && step === 4) || (userType === "client" && step === 4)) && (
+                  {((userType === "provider" && step === 4) ||
+                    (userType === "client" && step === 4)) && (
                     <div className="space-y-6">
                       {userType === "provider" ? (
                         <>
@@ -548,19 +572,35 @@ export default function Register() {
                           {/* Services Selection */}
                           <div className="space-y-2">
                             <Label>
-                              {language === "ar" ? "الخدمات المقدمة" : "Services proposés"} *
+                              {language === "ar"
+                                ? "الخدمات المقدمة"
+                                : "Services proposés"}{" "}
+                              *
                             </Label>
                             <div className="grid grid-cols-2 gap-2">
                               {services.map((service) => (
-                                <div key={service} className="flex items-center space-x-2">
+                                <div
+                                  key={service}
+                                  className="flex items-center space-x-2"
+                                >
                                   <Checkbox
                                     id={service}
-                                    checked={formData.services.includes(service)}
+                                    checked={formData.services.includes(
+                                      service,
+                                    )}
                                     onCheckedChange={(checked) => {
                                       if (checked) {
-                                        handleInputChange("services", [...formData.services, service]);
+                                        handleInputChange("services", [
+                                          ...formData.services,
+                                          service,
+                                        ]);
                                       } else {
-                                        handleInputChange("services", formData.services.filter(s => s !== service));
+                                        handleInputChange(
+                                          "services",
+                                          formData.services.filter(
+                                            (s) => s !== service,
+                                          ),
+                                        );
                                       }
                                     }}
                                   />
@@ -575,21 +615,46 @@ export default function Register() {
                           {/* Experience */}
                           <div className="space-y-2">
                             <Label htmlFor="experience">
-                              {language === "ar" ? "سنوات الخبرة" : "Années d'expérience"} *
+                              {language === "ar"
+                                ? "سنوات الخبرة"
+                                : "Années d'expérience"}{" "}
+                              *
                             </Label>
                             <Select
                               value={formData.experience}
-                              onValueChange={(value) => handleInputChange("experience", value)}
+                              onValueChange={(value) =>
+                                handleInputChange("experience", value)
+                              }
                             >
                               <SelectTrigger>
-                                <SelectValue placeholder={language === "ar" ? "اختر خبرتك" : "Sélectionnez votre expérience"} />
+                                <SelectValue
+                                  placeholder={
+                                    language === "ar"
+                                      ? "اختر خبرتك"
+                                      : "Sélectionnez votre expérience"
+                                  }
+                                />
                               </SelectTrigger>
                               <SelectContent>
-                                <SelectItem value="0-1">{language === "ar" ? "أقل من سنة" : "Moins d'1 an"}</SelectItem>
-                                <SelectItem value="1-3">1-3 {language === "ar" ? "سنوات" : "ans"}</SelectItem>
-                                <SelectItem value="3-5">3-5 {language === "ar" ? "سنوات" : "ans"}</SelectItem>
-                                <SelectItem value="5-10">5-10 {language === "ar" ? "سنوات" : "ans"}</SelectItem>
-                                <SelectItem value="10+">{language === "ar" ? "أكثر من 10 سنوات" : "Plus de 10 ans"}</SelectItem>
+                                <SelectItem value="0-1">
+                                  {language === "ar"
+                                    ? "أقل من سنة"
+                                    : "Moins d'1 an"}
+                                </SelectItem>
+                                <SelectItem value="1-3">
+                                  1-3 {language === "ar" ? "سنوات" : "ans"}
+                                </SelectItem>
+                                <SelectItem value="3-5">
+                                  3-5 {language === "ar" ? "سنوات" : "ans"}
+                                </SelectItem>
+                                <SelectItem value="5-10">
+                                  5-10 {language === "ar" ? "سنوات" : "ans"}
+                                </SelectItem>
+                                <SelectItem value="10+">
+                                  {language === "ar"
+                                    ? "أكثر من 10 سنوات"
+                                    : "Plus de 10 ans"}
+                                </SelectItem>
                               </SelectContent>
                             </Select>
                           </div>
@@ -597,19 +662,29 @@ export default function Register() {
                           {/* Professional Documents */}
                           <div className="space-y-4">
                             <h4 className="font-medium">
-                              {language === "ar" ? "الوثائق المهنية المطلوبة" : "Documents professionnels requis"}
+                              {language === "ar"
+                                ? "الوثائق المهنية المطلوبة"
+                                : "Documents professionnels requis"}
                             </h4>
-                            
+
                             {/* Insurance */}
                             <div className="space-y-2">
                               <Label htmlFor="insurance">
-                                {language === "ar" ? "وثيقة التأمين" : "Assurance professionnelle"} *
+                                {language === "ar"
+                                  ? "وثيقة التأمين"
+                                  : "Assurance professionnelle"}{" "}
+                                *
                               </Label>
                               <Input
                                 id="insurance"
                                 type="file"
                                 accept=".pdf,.png,.jpg,.jpeg"
-                                onChange={(e) => handleFileUpload("insuranceFile", e.target.files?.[0] || null)}
+                                onChange={(e) =>
+                                  handleFileUpload(
+                                    "insuranceFile",
+                                    e.target.files?.[0] || null,
+                                  )
+                                }
                                 required
                               />
                             </div>
@@ -617,13 +692,21 @@ export default function Register() {
                             {/* RC (Registre Commerce) */}
                             <div className="space-y-2">
                               <Label htmlFor="rc">
-                                {language === "ar" ? "السجل التجاري" : "Registre de Commerce (RC)"} *
+                                {language === "ar"
+                                  ? "السجل التجاري"
+                                  : "Registre de Commerce (RC)"}{" "}
+                                *
                               </Label>
                               <Input
                                 id="rc"
                                 type="file"
                                 accept=".pdf,.png,.jpg,.jpeg"
-                                onChange={(e) => handleFileUpload("rcFile", e.target.files?.[0] || null)}
+                                onChange={(e) =>
+                                  handleFileUpload(
+                                    "rcFile",
+                                    e.target.files?.[0] || null,
+                                  )
+                                }
                                 required
                               />
                             </div>
@@ -631,13 +714,21 @@ export default function Register() {
                             {/* Patente */}
                             <div className="space-y-2">
                               <Label htmlFor="patente">
-                                {language === "ar" ? "البراءة المهنية" : "Patente professionnelle"} *
+                                {language === "ar"
+                                  ? "البراءة المهنية"
+                                  : "Patente professionnelle"}{" "}
+                                *
                               </Label>
                               <Input
                                 id="patente"
                                 type="file"
                                 accept=".pdf,.png,.jpg,.jpeg"
-                                onChange={(e) => handleFileUpload("patenteFile", e.target.files?.[0] || null)}
+                                onChange={(e) =>
+                                  handleFileUpload(
+                                    "patenteFile",
+                                    e.target.files?.[0] || null,
+                                  )
+                                }
                                 required
                               />
                             </div>
@@ -645,7 +736,9 @@ export default function Register() {
                             {/* Other Documents */}
                             <div className="space-y-2">
                               <Label htmlFor="others">
-                                {language === "ar" ? "وثائق أخرى (اختياري)" : "Autres documents (optionnel)"}
+                                {language === "ar"
+                                  ? "وثائق أخرى (اختياري)"
+                                  : "Autres documents (optionnel)"}
                               </Label>
                               <Input
                                 id="others"
@@ -654,7 +747,10 @@ export default function Register() {
                                 accept=".pdf,.png,.jpg,.jpeg"
                                 onChange={(e) => {
                                   if (e.target.files) {
-                                    handleInputChange("otherDocuments", Array.from(e.target.files));
+                                    handleInputChange(
+                                      "otherDocuments",
+                                      Array.from(e.target.files),
+                                    );
                                   }
                                 }}
                               />
@@ -707,7 +803,9 @@ export default function Register() {
                                       : "Carte d'Identité Nationale (CIN)"}
                                   </SelectItem>
                                   <SelectItem value="passport">
-                                    {language === "ar" ? "جواز السفر" : "Passeport"}
+                                    {language === "ar"
+                                      ? "جواز السفر"
+                                      : "Passeport"}
                                   </SelectItem>
                                 </SelectContent>
                               </Select>
@@ -748,7 +846,10 @@ export default function Register() {
                             id="terms"
                             checked={formData.acceptTerms}
                             onCheckedChange={(checked) =>
-                              handleInputChange("acceptTerms", checked as boolean)
+                              handleInputChange(
+                                "acceptTerms",
+                                checked as boolean,
+                              )
                             }
                           />
                           <Label htmlFor="terms" className="text-sm">
@@ -926,7 +1027,8 @@ export default function Register() {
                               !formData.lastName ||
                               !formData.password ||
                               !formData.confirmPassword ||
-                              formData.password !== formData.confirmPassword)) ||
+                              formData.password !==
+                                formData.confirmPassword)) ||
                           (step === 3 &&
                             (!formData.email ||
                               !formData.phone ||
@@ -942,7 +1044,11 @@ export default function Register() {
                           !formData.idType ||
                           !formData.idNumber ||
                           !formData.acceptTerms ||
-                          (userType === "provider" && (!formData.insuranceFile || !formData.rcFile || !formData.patenteFile || formData.services.length === 0)) ||
+                          (userType === "provider" &&
+                            (!formData.insuranceFile ||
+                              !formData.rcFile ||
+                              !formData.patenteFile ||
+                              formData.services.length === 0)) ||
                           isLoading
                         }
                       >

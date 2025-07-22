@@ -79,8 +79,6 @@ export function Header() {
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
-
-
             </NavigationMenuList>
           </NavigationMenu>
 
@@ -110,7 +108,6 @@ export function Header() {
                   {t("nav.register")}
                 </Link>
               </Button>
-
             </div>
 
             {/* Mobile menu button */}
@@ -166,7 +163,6 @@ export function Header() {
                 <UserCheck className="mr-2 h-4 w-4 inline" />
                 {t("nav.register")}
               </Link>
-
             </nav>
           </div>
         )}
