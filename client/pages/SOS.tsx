@@ -54,7 +54,7 @@ export default function SOS() {
       icon: Shield,
       color: "bg-blue-100 text-blue-600 border-blue-200",
       description: {
-        ar: "الإبلاغ عن جرائم، حوادث، أو ط��ب المساعدة الأمنية",
+        ar: "الإبلاغ عن جرائم، حوادث، أو طلب المساعدة الأمنية",
         fr: "Signaler des crimes, accidents ou demander une assistance sécuritaire",
       },
       examples: {
@@ -74,7 +74,7 @@ export default function SOS() {
         fr: "Incendies, accidents, sauvetages ou urgences civiles",
       },
       examples: {
-        ar: ["حريق", "انهيار مبنى", "إنقاذ شخص", "تسريب غاز"],
+        ar: ["حريق", "انهيار مبنى", "إنقاذ شخص", "تس��يب غاز"],
         fr: ["Incendie", "Effondrement", "Sauvetage", "Fuite de gaz"],
       },
     },
@@ -176,14 +176,10 @@ export default function SOS() {
             </div>
           </div>
           <h1 className="text-4xl font-bold text-red-600 mb-2">
-            {language === "ar"
-              ? "خدمات الطوارئ والأمان"
-              : "Services d'Urgence et Sécurité"}
+            {t("sos.title")}
           </h1>
           <p className="text-muted-foreground text-lg">
-            {language === "ar"
-              ? "اتصل بخدمات الطوارئ المغربية مباشرة من Khadamat"
-              : "Contactez les services d'urgence marocains directement depuis Khadamat"}
+            {t("sos.subtitle")}
           </p>
           <Badge variant="destructive" className="text-lg px-4 py-2 mt-4">
             <Phone className="mr-2 h-5 w-5" />
@@ -469,7 +465,7 @@ export default function SOS() {
               </h3>
               <p className="text-muted-foreground mb-4">
                 {language === "ar"
-                  ? "للمساعدة في المهام العادية، تصفح خدماتنا"
+                  ? "للمساعدة في المهام العادية، تصف�� خدماتنا"
                   : "Pour de l'aide avec vos tâches quotidiennes, explorez nos services"}
               </p>
               <div className="flex justify-center gap-4">
