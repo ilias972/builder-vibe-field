@@ -65,6 +65,54 @@ const translations = {
     "badge.pro_club": "Club Pro B2B",
     "badge.emergency": "Service d'Urgence",
 
+    // Emergency/SOS
+    "sos.title": "Service d'Urgence 24/7",
+    "sos.subtitle": "Intervention rapide partout au Maroc",
+    "sos.description": "Plomberie, électricité, serrurerie - Intervention rapide",
+    "sos.call_button": "Appeler SOS",
+    "sos.emergency_numbers": "Numéros d'urgence officiels",
+    "sos.police": "Police",
+    "sos.fire_medical": "Pompiers/SAMU",
+    "sos.gendarmerie": "Gendarmerie",
+
+    // Club Pro
+    "clubpro.title": "Club Pro",
+    "clubpro.subtitle": "Accès exclusif aux projets de haute valeur",
+    "clubpro.price": "500 DH/an",
+    "clubpro.projects_range": "Projets de 5,000 - 50,000 DH",
+    "clubpro.exclusive_projects": "Projets exclusifs",
+    "clubpro.reduced_commission": "Commission réduite",
+    "clubpro.priority_search": "Priorité dans la recherche",
+    "clubpro.dedicated_support": "Support dédié",
+    "clubpro.requirements": "Exigences d'adhésion",
+    "clubpro.documents_required": "Documents requis",
+    "clubpro.join_button": "Rejoindre Club Pro",
+
+    // How it works
+    "how_it_works.title": "Comment ça marche",
+    "how_it_works.step1_title": "Décrivez votre besoin",
+    "how_it_works.step1_desc": "Publiez votre projet en quelques clics",
+    "how_it_works.step2_title": "Recevez des propositions",
+    "how_it_works.step2_desc": "Les prestataires qualifiés vous contactent",
+    "how_it_works.step3_title": "Choisissez et réservez",
+    "how_it_works.step3_desc": "Sélectionnez le meilleur prestataire",
+    "how_it_works.step4_title": "Paiement sécurisé",
+    "how_it_works.step4_desc": "Votre argent est protégé jusqu'à validation",
+
+    // Become Provider
+    "become_provider.title": "Devenir Prestataire",
+    "become_provider.subtitle": "Développez votre activité avec Khadamat",
+    "become_provider.benefits": "Avantages",
+    "become_provider.benefit1": "Accès à de nouveaux clients",
+    "become_provider.benefit2": "Paiements sécurisés garantis",
+    "become_provider.benefit3": "Outils de gestion inclus",
+    "become_provider.benefit4": "Support client dédié",
+    "become_provider.requirements": "Exigences",
+    "become_provider.requirement1": "Vérification d'identité",
+    "become_provider.requirement2": "Documents professionnels",
+    "become_provider.requirement3": "Évaluation des compétences",
+    "become_provider.start_button": "Commencer l'inscription",
+
     // Footer
     "footer.about": "À Propos",
     "footer.terms": "CGU",
@@ -74,6 +122,8 @@ const translations = {
     "footer.careers": "Carrières",
     "footer.press": "Presse",
     "footer.partners": "Partenaires",
+    "footer.company": "Entreprise",
+    "footer.support_legal": "Support & Légal",
     "footer.copyright": "© 2024 Khadamat. Tous droits réservés.",
   },
   ar: {
