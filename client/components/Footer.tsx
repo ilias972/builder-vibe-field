@@ -109,7 +109,7 @@ export function Footer() {
 
           {/* Support & Legal */}
           <div>
-            <h3 className="font-semibold mb-4">Support & Légal</h3>
+            <h3 className="font-semibold mb-4">{t("footer.support_legal")}</h3>
             <ul className="space-y-3 text-sm">
               <li>
                 <Link
