@@ -17,13 +17,15 @@ export function Footer() {
   return (
     <footer className="bg-card border-t">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Logo and Description */}
           <div className="col-span-1 md:col-span-1">
             <Link to="/" className="flex items-center space-x-2 mb-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                <Wrench className="h-5 w-5" />
-              </div>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F8ebc21d185f04cd5b5868041c20fe8f4%2F804314fe3d0144a791f0476fb3bee0d8?format=webp&width=800"
+                alt="Khadamat Logo"
+                className="h-8 w-8 object-cover rounded-full"
+              />
               <span className="text-xl font-bold text-primary">Khadamat</span>
             </Link>
             <p className="text-muted-foreground text-sm mb-4">
@@ -56,53 +58,6 @@ export function Footer() {
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="font-semibold mb-4">{t("nav.services")}</h3>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <Link
-                  to="/services/plumbing"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {t("service.plumbing")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services/electrical"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {t("service.electrical")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services/cleaning"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {t("service.cleaning")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services/painting"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {t("service.painting")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services/carpentry"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {t("service.carpentry")}
-                </Link>
-              </li>
-            </ul>
           </div>
 
           {/* Company */}
