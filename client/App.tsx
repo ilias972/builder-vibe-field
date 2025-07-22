@@ -35,6 +35,7 @@ import Partners from "./pages/Partners";
 import ForgotPassword from "./pages/ForgotPassword";
 import ClientRegister from "./pages/ClientRegister";
 import ProviderRegister from "./pages/ProviderRegister";
+import ClubProRegister from "./pages/ClubProRegister";
 
 const queryClient = new QueryClient();
 
