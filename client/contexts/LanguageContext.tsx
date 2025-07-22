@@ -180,6 +180,54 @@ const translations = {
     "badge.pro_club": "نادي المحترفين",
     "badge.emergency": "خدمة طوارئ",
 
+    // Emergency/SOS
+    "sos.title": "خدمة الطوارئ 24/7",
+    "sos.subtitle": "تدخل سريع في جميع أنحاء المغرب",
+    "sos.description": "سباكة، كهرباء، أقفال - تدخل سريع",
+    "sos.call_button": "اتصل بالطوارئ",
+    "sos.emergency_numbers": "أرقام الطوارئ الرسمية",
+    "sos.police": "الشرطة",
+    "sos.fire_medical": "الإطفاء/الإسعاف",
+    "sos.gendarmerie": "الدرك الملكي",
+
+    // Club Pro
+    "clubpro.title": "Club Pro",
+    "clubpro.subtitle": "وصول حصري للمشاريع ع��لية القيمة",
+    "clubpro.price": "500 درهم/سنة",
+    "clubpro.projects_range": "مشاريع من 5,000 - 50,000 درهم",
+    "clubpro.exclusive_projects": "مشاريع حصرية",
+    "clubpro.reduced_commission": "عمولة مخفضة",
+    "clubpro.priority_search": "أولوية في البحث",
+    "clubpro.dedicated_support": "دعم مخصص",
+    "clubpro.requirements": "متطلبات العضوية",
+    "clubpro.documents_required": "الوثائق المطلوبة",
+    "clubpro.join_button": "انضم إلى Club Pro",
+
+    // How it works
+    "how_it_works.title": "كيف يعمل",
+    "how_it_works.step1_title": "صف احتياجك",
+    "how_it_works.step1_desc": "انشر مشروعك في بضع نقرات",
+    "how_it_works.step2_title": "تلقى عروضاً",
+    "how_it_works.step2_desc": "مقدمو الخدمات المؤهلون يتواصلون معك",
+    "how_it_works.step3_title": "اختر واحجز",
+    "how_it_works.step3_desc": "اختر أفضل مقدم خدمة",
+    "how_it_works.step4_title": "دفع آمن",
+    "how_it_works.step4_desc": "أموالك محمية حتى التحقق",
+
+    // Become Provider
+    "become_provider.title": "كن مقدم خدم��",
+    "become_provider.subtitle": "طور نشاطك التجاري مع خدمات",
+    "become_provider.benefits": "المزايا",
+    "become_provider.benefit1": "الوصول لعملاء جدد",
+    "become_provider.benefit2": "مدفوعات آمنة مضمونة",
+    "become_provider.benefit3": "أدوات إدارة مدمجة",
+    "become_provider.benefit4": "دعم عملاء مخصص",
+    "become_provider.requirements": "المتطلبات",
+    "become_provider.requirement1": "التحقق من الهوية",
+    "become_provider.requirement2": "وثائق مهنية",
+    "become_provider.requirement3": "تقييم المهارات",
+    "become_provider.start_button": "ابدأ التسجيل",
+
     // Footer
     "footer.about": "حولنا",
     "footer.terms": "الشروط والأحكام",
@@ -189,6 +237,8 @@ const translations = {
     "footer.careers": "الوظائف",
     "footer.press": "الصحافة",
     "footer.partners": "الشركاء",
+    "footer.company": "الشركة",
+    "footer.support_legal": "الدعم والقانون",
     "footer.copyright": "© 2024 خدمات. جميع الحقوق محفوظة.",
   },
 };
