@@ -179,7 +179,7 @@ export default function ClubPro() {
           </p>
           <Badge className="mt-4 text-lg px-6 py-2 bg-gradient-to-r from-yellow-500 to-orange-500">
             <Award className="mr-2 h-5 w-5" />
-            {language === "ar" ? "عضوية حصري��" : "Membership Exclusif"}
+            {language === "ar" ? "عضوية حصر����" : "Membership Exclusif"}
           </Badge>
         </div>
 
@@ -307,13 +307,13 @@ export default function ClubPro() {
             <div className="max-w-md mx-auto">
               <div className="text-center mb-6">
                 <div className="text-4xl font-bold text-orange-600 mb-2">
-                  300 DH
+                  50 DH/mois
                 </div>
                 <div className="text-muted-foreground">
-                  {language === "ar" ? "سنوياً فقط" : "par an seulement"}
+                  {language === "ar" ? "التزام سنة واحدة" : "Engagement 1 an"}
                 </div>
                 <div className="text-sm text-green-600 font-medium">
-                  {language === "ar" ? "25 درهم في الشهر" : "25 DH par mois"}
+                  {language === "ar" ? "600 درهم مجموع السنة" : "600 DH au total pour l'année"}
                 </div>
               </div>
 
