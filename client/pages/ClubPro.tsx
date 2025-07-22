@@ -179,7 +179,7 @@ export default function ClubPro() {
           </p>
           <Badge className="mt-4 text-lg px-6 py-2 bg-gradient-to-r from-yellow-500 to-orange-500">
             <Award className="mr-2 h-5 w-5" />
-            {language === "ar" ? "عضوية حصر����" : "Membership Exclusif"}
+            {language === "ar" ? "عضوية حصري��" : "Membership Exclusif"}
           </Badge>
         </div>
 
@@ -452,9 +452,9 @@ export default function ClubPro() {
           <CardContent>
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-2xl font-bold text-green-600">300 DH</div>
+                <div className="text-2xl font-bold text-green-600">600 DH</div>
                 <div className="text-sm text-green-700">
-                  {language === "ar" ? "كلفة العضوية" : "Coût d'adhésion"}
+                  {language === "ar" ? "كلفة العضوية السنوية" : "Coût d'adhésion annuel"}
                 </div>
               </div>
               <div>
@@ -508,7 +508,7 @@ export default function ClubPro() {
               <div>
                 <h4 className="font-semibold">
                   {language === "ar"
-                    ? "هل يمكنني إلغاء الاشتراك؟"
+                    ? "هل يمكنني إلغاء ��لاشتراك؟"
                     : "Puis-je annuler mon abonnement ?"}
                 </h4>
                 <p className="text-muted-foreground text-sm">
