@@ -360,7 +360,9 @@ export default function Index() {
               <div className="bg-primary text-primary-foreground rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 1
               </div>
-              <h3 className="font-semibold mb-2">{t("how_it_works.step1_title")}</h3>
+              <h3 className="font-semibold mb-2">
+                {t("how_it_works.step1_title")}
+              </h3>
               <p className="text-sm text-muted-foreground">
                 {t("how_it_works.step1_desc")}
               </p>
@@ -369,7 +371,9 @@ export default function Index() {
               <div className="bg-primary text-primary-foreground rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 2
               </div>
-              <h3 className="font-semibold mb-2">{t("how_it_works.step2_title")}</h3>
+              <h3 className="font-semibold mb-2">
+                {t("how_it_works.step2_title")}
+              </h3>
               <p className="text-sm text-muted-foreground">
                 {t("how_it_works.step2_desc")}
               </p>
@@ -378,7 +382,9 @@ export default function Index() {
               <div className="bg-primary text-primary-foreground rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 3
               </div>
-              <h3 className="font-semibold mb-2">{t("how_it_works.step3_title")}</h3>
+              <h3 className="font-semibold mb-2">
+                {t("how_it_works.step3_title")}
+              </h3>
               <p className="text-sm text-muted-foreground">
                 {t("how_it_works.step3_desc")}
               </p>
@@ -387,7 +393,9 @@ export default function Index() {
               <div className="bg-primary text-primary-foreground rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 4
               </div>
-              <h3 className="font-semibold mb-2">{t("how_it_works.step4_title")}</h3>
+              <h3 className="font-semibold mb-2">
+                {t("how_it_works.step4_title")}
+              </h3>
               <p className="text-sm text-muted-foreground">
                 {t("how_it_works.step4_desc")}
               </p>
@@ -527,12 +535,8 @@ export default function Index() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-4 md:mb-0">
-              <h3 className="text-2xl font-bold mb-2">
-                {t("sos.title")}
-              </h3>
-              <p className="opacity-90">
-                {t("sos.description")}
-              </p>
+              <h3 className="text-2xl font-bold mb-2">{t("sos.title")}</h3>
+              <p className="opacity-90">{t("sos.description")}</p>
             </div>
             <Button size="lg" variant="secondary" asChild>
               <Link to="/sos">

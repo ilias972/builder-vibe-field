@@ -114,7 +114,8 @@ export function Newsletter() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="newsletter-email">
-                    {language === "ar" ? "البريد الإلكتروني" : "Adresse email"} *
+                    {language === "ar" ? "البريد الإلكتروني" : "Adresse email"}{" "}
+                    *
                   </Label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />

@@ -178,9 +178,7 @@ export default function SOS() {
           <h1 className="text-4xl font-bold text-red-600 mb-2">
             {t("sos.title")}
           </h1>
-          <p className="text-muted-foreground text-lg">
-            {t("sos.subtitle")}
-          </p>
+          <p className="text-muted-foreground text-lg">{t("sos.subtitle")}</p>
           <Badge variant="destructive" className="text-lg px-4 py-2 mt-4">
             <Phone className="mr-2 h-5 w-5" />
             {language === "ar" ? "متاح 24/7" : "Disponible 24/7"}

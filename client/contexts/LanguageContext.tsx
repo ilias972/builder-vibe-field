@@ -68,7 +68,8 @@ const translations = {
     // Emergency/SOS
     "sos.title": "Service d'Urgence 24/7",
     "sos.subtitle": "Intervention rapide partout au Maroc",
-    "sos.description": "Plomberie, électricité, serrurerie - Intervention rapide",
+    "sos.description":
+      "Plomberie, électricité, serrurerie - Intervention rapide",
     "sos.call_button": "Appeler SOS",
     "sos.emergency_numbers": "Numéros d'urgence officiels",
     "sos.police": "Police",

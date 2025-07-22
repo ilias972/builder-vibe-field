@@ -64,7 +64,10 @@ export default function ClubProRegister() {
     "air_conditioning",
   ];
 
-  const handleInputChange = (field: string, value: string | boolean | File | File[]) => {
+  const handleInputChange = (
+    field: string,
+    value: string | boolean | File | File[],
+  ) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
@@ -96,9 +99,7 @@ export default function ClubProRegister() {
       case 1:
         return language === "ar" ? "الخدمات والخبرة" : "Services et expérience";
       case 2:
-        return language === "ar"
-          ? "الوثائق المطلوبة"
-          : "Documents requis";
+        return language === "ar" ? "الوثائق المطلوبة" : "Documents requis";
       case 3:
         return language === "ar" ? "الدفع" : "Paiement";
       case 4:
@@ -134,13 +135,33 @@ export default function ClubProRegister() {
 
             <div className="bg-gradient-to-r from-yellow-50 to-orange-50 p-4 rounded-lg">
               <h4 className="font-medium text-orange-900 mb-2">
-                {language === "ar" ? "ما التالي؟" : "Que se passe-t-il ensuite ?"}
+                {language === "ar"
+                  ? "ما التالي؟"
+                  : "Que se passe-t-il ensuite ?"}
               </h4>
               <ul className="text-sm text-orange-700 space-y-1 text-left">
-                <li>✓ {language === "ar" ? "مراجعة الوثائق" : "Examen des documents"}</li>
-                <li>✓ {language === "ar" ? "تأكيد الدفع" : "Confirmation du paiement"}</li>
-                <li>✓ {language === "ar" ? "تفعيل الحساب" : "Activation du compte"}</li>
-                <li>✓ {language === "ar" ? "الوصول للمشاريع الحصرية" : "Accès aux projets exclusifs"}</li>
+                <li>
+                  ✓{" "}
+                  {language === "ar"
+                    ? "مراجعة الوثائق"
+                    : "Examen des documents"}
+                </li>
+                <li>
+                  ✓{" "}
+                  {language === "ar"
+                    ? "تأكيد الدفع"
+                    : "Confirmation du paiement"}
+                </li>
+                <li>
+                  ✓{" "}
+                  {language === "ar" ? "تفعيل الحساب" : "Activation du compte"}
+                </li>
+                <li>
+                  ✓{" "}
+                  {language === "ar"
+                    ? "الوصول للمشاريع الحصرية"
+                    : "Accès aux projets exclusifs"}
+                </li>
               </ul>
             </div>
 
@@ -152,7 +173,9 @@ export default function ClubProRegister() {
               </Button>
               <Button asChild variant="outline" className="w-full">
                 <Link to="/club-pro">
-                  {language === "ar" ? "معرفة المزيد عن Club Pro" : "En savoir plus sur Club Pro"}
+                  {language === "ar"
+                    ? "معرفة المزيد عن Club Pro"
+                    : "En savoir plus sur Club Pro"}
                 </Link>
               </Button>
             </div>
@@ -187,7 +210,9 @@ export default function ClubProRegister() {
           <Card className="mb-8 border-orange-200 bg-gradient-to-r from-yellow-50 to-orange-50">
             <CardContent className="p-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-orange-600 mb-2">500 DH/an</div>
+                <div className="text-3xl font-bold text-orange-600 mb-2">
+                  500 DH/an
+                </div>
                 <p className="text-muted-foreground mb-4">
                   {language === "ar"
                     ? "اشتراك سنوي للوصول لمشاريع 5,000 - 50,000 درهم"
@@ -196,19 +221,29 @@ export default function ClubProRegister() {
                 <div className="grid md:grid-cols-2 gap-4 text-sm">
                   <div className="flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 text-green-600" />
-                    <span>{language === "ar" ? "مشاريع حصرية" : "Projets exclusifs"}</span>
+                    <span>
+                      {language === "ar" ? "مشاريع حصرية" : "Projets exclusifs"}
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 text-green-600" />
-                    <span>{language === "ar" ? "عمولة مخفضة" : "Commission réduite"}</span>
+                    <span>
+                      {language === "ar" ? "عمولة مخفضة" : "Commission réduite"}
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 text-green-600" />
-                    <span>{language === "ar" ? "أولوية في البحث" : "Priorité dans la recherche"}</span>
+                    <span>
+                      {language === "ar"
+                        ? "أولوية في البحث"
+                        : "Priorité dans la recherche"}
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 text-green-600" />
-                    <span>{language === "ar" ? "دعم مخصص" : "Support dédié"}</span>
+                    <span>
+                      {language === "ar" ? "دعم مخصص" : "Support dédié"}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -232,7 +267,9 @@ export default function ClubProRegister() {
                   {stepNumber < 3 && (
                     <div
                       className={`w-12 h-1 mx-2 ${
-                        step > stepNumber ? "bg-gradient-to-r from-yellow-400 to-orange-500" : "bg-muted"
+                        step > stepNumber
+                          ? "bg-gradient-to-r from-yellow-400 to-orange-500"
+                          : "bg-muted"
                       }`}
                     />
                   )}
@@ -241,7 +278,8 @@ export default function ClubProRegister() {
             </div>
             <div className="mt-2 text-center">
               <p className="text-sm text-muted-foreground">
-                {getStepTitle(step)} - {language === "ar" ? "خطوة" : "Étape"} {step}/3
+                {getStepTitle(step)} - {language === "ar" ? "خطوة" : "Étape"}{" "}
+                {step}/3
               </p>
             </div>
           </div>
@@ -280,21 +318,32 @@ export default function ClubProRegister() {
                   <div className="space-y-6">
                     <div className="space-y-2">
                       <Label>
-                        {language === "ar" ? "الخدمات المقدمة" : "Services proposés"} *
+                        {language === "ar"
+                          ? "الخدمات المقدمة"
+                          : "Services proposés"}{" "}
+                        *
                       </Label>
                       <div className="grid grid-cols-2 gap-2">
                         {services.map((service) => (
-                          <div key={service} className="flex items-center space-x-2">
+                          <div
+                            key={service}
+                            className="flex items-center space-x-2"
+                          >
                             <Checkbox
                               id={service}
                               checked={formData.services.includes(service)}
                               onCheckedChange={(checked) => {
                                 if (checked) {
-                                  handleInputChange("services", [...formData.services, service]);
+                                  handleInputChange("services", [
+                                    ...formData.services,
+                                    service,
+                                  ]);
                                 } else {
                                   handleInputChange(
                                     "services",
-                                    formData.services.filter((s) => s !== service),
+                                    formData.services.filter(
+                                      (s) => s !== service,
+                                    ),
                                   );
                                 }
                               }}
@@ -309,16 +358,23 @@ export default function ClubProRegister() {
 
                     <div className="space-y-2">
                       <Label htmlFor="experience">
-                        {language === "ar" ? "سنوات الخبرة" : "Années d'expérience"} *
+                        {language === "ar"
+                          ? "سنوات الخبرة"
+                          : "Années d'expérience"}{" "}
+                        *
                       </Label>
                       <Select
                         value={formData.experience}
-                        onValueChange={(value) => handleInputChange("experience", value)}
+                        onValueChange={(value) =>
+                          handleInputChange("experience", value)
+                        }
                       >
                         <SelectTrigger>
                           <SelectValue
                             placeholder={
-                              language === "ar" ? "اختر خبرتك" : "Sélectionnez votre expérience"
+                              language === "ar"
+                                ? "اختر خبرتك"
+                                : "Sélectionnez votre expérience"
                             }
                           />
                         </SelectTrigger>
@@ -333,7 +389,9 @@ export default function ClubProRegister() {
                             5-10 {language === "ar" ? "سنوات" : "ans"}
                           </SelectItem>
                           <SelectItem value="10+">
-                            {language === "ar" ? "أكثر من 10 سنوات" : "Plus de 10 ans"}
+                            {language === "ar"
+                              ? "أكثر من 10 سنوات"
+                              : "Plus de 10 ans"}
                           </SelectItem>
                         </SelectContent>
                       </Select>
@@ -356,13 +414,21 @@ export default function ClubProRegister() {
                     {/* Patente */}
                     <div className="space-y-2">
                       <Label htmlFor="patente">
-                        {language === "ar" ? "البراءة المهنية (Patente)" : "Patente professionnelle"} *
+                        {language === "ar"
+                          ? "البراءة المهنية (Patente)"
+                          : "Patente professionnelle"}{" "}
+                        *
                       </Label>
                       <Input
                         id="patente"
                         type="file"
                         accept=".pdf,.png,.jpg,.jpeg"
-                        onChange={(e) => handleFileUpload("patenteFile", e.target.files?.[0] || null)}
+                        onChange={(e) =>
+                          handleFileUpload(
+                            "patenteFile",
+                            e.target.files?.[0] || null,
+                          )
+                        }
                         required
                       />
                     </div>
@@ -370,13 +436,21 @@ export default function ClubProRegister() {
                     {/* RC */}
                     <div className="space-y-2">
                       <Label htmlFor="rc">
-                        {language === "ar" ? "السجل التجاري (RC)" : "Registre de Commerce (RC)"} *
+                        {language === "ar"
+                          ? "السجل التجاري (RC)"
+                          : "Registre de Commerce (RC)"}{" "}
+                        *
                       </Label>
                       <Input
                         id="rc"
                         type="file"
                         accept=".pdf,.png,.jpg,.jpeg"
-                        onChange={(e) => handleFileUpload("rcFile", e.target.files?.[0] || null)}
+                        onChange={(e) =>
+                          handleFileUpload(
+                            "rcFile",
+                            e.target.files?.[0] || null,
+                          )
+                        }
                         required
                       />
                     </div>
@@ -384,13 +458,21 @@ export default function ClubProRegister() {
                     {/* Assurance */}
                     <div className="space-y-2">
                       <Label htmlFor="assurance">
-                        {language === "ar" ? "وثيقة التأمين المهني" : "Assurance professionnelle"} *
+                        {language === "ar"
+                          ? "وثيقة التأمين المهني"
+                          : "Assurance professionnelle"}{" "}
+                        *
                       </Label>
                       <Input
                         id="assurance"
                         type="file"
                         accept=".pdf,.png,.jpg,.jpeg"
-                        onChange={(e) => handleFileUpload("assuranceFile", e.target.files?.[0] || null)}
+                        onChange={(e) =>
+                          handleFileUpload(
+                            "assuranceFile",
+                            e.target.files?.[0] || null,
+                          )
+                        }
                         required
                       />
                     </div>
@@ -398,13 +480,22 @@ export default function ClubProRegister() {
                     {/* ICE Number */}
                     <div className="space-y-2">
                       <Label htmlFor="ice">
-                        {language === "ar" ? "رقم التسجيل الموحد (ICE)" : "Numéro ICE (Identifiant Commun de l'Entreprise)"} *
+                        {language === "ar"
+                          ? "رقم التسجيل الموحد (ICE)"
+                          : "Numéro ICE (Identifiant Commun de l'Entreprise)"}{" "}
+                        *
                       </Label>
                       <Input
                         id="ice"
-                        placeholder={language === "ar" ? "مثال: 123456789012345" : "ex: 123456789012345"}
+                        placeholder={
+                          language === "ar"
+                            ? "مثال: 123456789012345"
+                            : "ex: 123456789012345"
+                        }
                         value={formData.iceNumber}
-                        onChange={(e) => handleInputChange("iceNumber", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("iceNumber", e.target.value)
+                        }
                         required
                       />
                     </div>
@@ -425,11 +516,16 @@ export default function ClubProRegister() {
 
                     <div className="space-y-2">
                       <Label>
-                        {language === "ar" ? "طريقة الدفع" : "Méthode de paiement"} *
+                        {language === "ar"
+                          ? "طريقة الدفع"
+                          : "Méthode de paiement"}{" "}
+                        *
                       </Label>
                       <Select
                         value={formData.paymentMethod}
-                        onValueChange={(value) => handleInputChange("paymentMethod", value)}
+                        onValueChange={(value) =>
+                          handleInputChange("paymentMethod", value)
+                        }
                       >
                         <SelectTrigger>
                           <SelectValue
@@ -442,13 +538,19 @@ export default function ClubProRegister() {
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="card">
-                            {language === "ar" ? "بطاقة بنكية" : "Carte bancaire"}
+                            {language === "ar"
+                              ? "بطاقة بنكية"
+                              : "Carte bancaire"}
                           </SelectItem>
                           <SelectItem value="bank_transfer">
-                            {language === "ar" ? "تحويل بنكي" : "Virement bancaire"}
+                            {language === "ar"
+                              ? "تحويل بنكي"
+                              : "Virement bancaire"}
                           </SelectItem>
                           <SelectItem value="mobile_money">
-                            {language === "ar" ? "المحفظة الإلكترونية" : "Portefeuille mobile"}
+                            {language === "ar"
+                              ? "المحفظة الإلكترونية"
+                              : "Portefeuille mobile"}
                           </SelectItem>
                         </SelectContent>
                       </Select>
@@ -460,21 +562,30 @@ export default function ClubProRegister() {
                           id="clubTerms"
                           checked={formData.acceptClubTerms}
                           onCheckedChange={(checked) =>
-                            handleInputChange("acceptClubTerms", checked as boolean)
+                            handleInputChange(
+                              "acceptClubTerms",
+                              checked as boolean,
+                            )
                           }
                         />
                         <Label htmlFor="clubTerms" className="text-sm">
                           {language === "ar" ? (
                             <>
                               أوافق على{" "}
-                              <Link to="/club-pro/terms" className="text-primary hover:underline">
+                              <Link
+                                to="/club-pro/terms"
+                                className="text-primary hover:underline"
+                              >
                                 شروط وأحكام Club Pro
                               </Link>
                             </>
                           ) : (
                             <>
                               J'accepte les{" "}
-                              <Link to="/club-pro/terms" className="text-primary hover:underline">
+                              <Link
+                                to="/club-pro/terms"
+                                className="text-primary hover:underline"
+                              >
                                 conditions d'utilisation Club Pro
                               </Link>
                             </>
@@ -487,7 +598,10 @@ export default function ClubProRegister() {
                           id="payment"
                           checked={formData.acceptPayment}
                           onCheckedChange={(checked) =>
-                            handleInputChange("acceptPayment", checked as boolean)
+                            handleInputChange(
+                              "acceptPayment",
+                              checked as boolean,
+                            )
                           }
                         />
                         <Label htmlFor="payment" className="text-sm">
@@ -503,7 +617,11 @@ export default function ClubProRegister() {
                 {/* Navigation Buttons */}
                 <div className="flex justify-between mt-6">
                   {step > 1 && (
-                    <Button type="button" variant="outline" onClick={handlePrevious}>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={handlePrevious}
+                    >
                       {language === "ar" ? "السابق" : "Précédent"}
                     </Button>
                   )}
@@ -512,7 +630,9 @@ export default function ClubProRegister() {
                       type="submit"
                       className={`${step === 1 ? "ml-auto" : ""} bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600`}
                       disabled={
-                        (step === 1 && (formData.services.length === 0 || !formData.experience)) ||
+                        (step === 1 &&
+                          (formData.services.length === 0 ||
+                            !formData.experience)) ||
                         (step === 2 &&
                           (!formData.patenteFile ||
                             !formData.rcFile ||
@@ -536,12 +656,16 @@ export default function ClubProRegister() {
                       {isLoading ? (
                         <div className="flex items-center gap-2">
                           <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
-                          {language === "ar" ? "جاري المعالجة..." : "Traitement..."}
+                          {language === "ar"
+                            ? "جاري المعالجة..."
+                            : "Traitement..."}
                         </div>
                       ) : (
                         <>
                           <Crown className="mr-2 h-4 w-4" />
-                          {language === "ar" ? "انضم إلى Club Pro" : "Rejoindre Club Pro"}
+                          {language === "ar"
+                            ? "انضم إلى Club Pro"
+                            : "Rejoindre Club Pro"}
                         </>
                       )}
                     </Button>
@@ -554,7 +678,9 @@ export default function ClubProRegister() {
           {/* Login Link */}
           <div className="text-center mt-6">
             <p className="text-muted-foreground">
-              {language === "ar" ? "لديك حساب بالفعل؟ " : "Vous avez déjà un compte ? "}
+              {language === "ar"
+                ? "لديك حساب بالفعل؟ "
+                : "Vous avez déjà un compte ? "}
               <Link to="/login" className="text-primary hover:underline">
                 {language === "ar" ? "تسجيل الدخول" : "Se connecter"}
               </Link>

@@ -45,7 +45,7 @@ const App = () => (
       <LanguageProvider>
         <Toaster />
         <Sonner />
-                <BrowserRouter>
+        <BrowserRouter>
           <Header />
           <main className="min-h-screen">
             <Routes>
@@ -62,7 +62,7 @@ const App = () => (
               <Route path="/club-pro" element={<ClubPro />} />
               <Route path="/club-pro/register" element={<ClubProRegister />} />
               <Route path="/about" element={<About />} />
-                            <Route path="/contact" element={<Contact />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
               <Route path="/become-provider" element={<BecomeProvider />} />
               <Route path="/search" element={<Search />} />

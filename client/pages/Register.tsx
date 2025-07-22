@@ -143,7 +143,9 @@ export default function Register() {
               <Button asChild variant="outline" size="sm" className="w-full">
                 <Link to="/club-pro/register">
                   <Shield className="mr-2 h-4 w-4" />
-                  {language === "ar" ? "انضم إلى Club Pro" : "Rejoindre Club Pro"}
+                  {language === "ar"
+                    ? "انضم إلى Club Pro"
+                    : "Rejoindre Club Pro"}
                 </Link>
               </Button>
             </div>
@@ -330,7 +332,10 @@ export default function Register() {
 
                     <div className="space-y-2">
                       <Label htmlFor="phone">
-                        {language === "ar" ? "رقم الهاتف" : "Numéro de téléphone"} *
+                        {language === "ar"
+                          ? "رقم الهاتف"
+                          : "Numéro de téléphone"}{" "}
+                        *
                       </Label>
                       <div className="relative">
                         <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
