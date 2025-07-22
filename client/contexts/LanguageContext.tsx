@@ -151,7 +151,7 @@ const translations = {
     "home.featured_providers": "مقدمو الخدمات المميزون",
     "home.testimonials": "شهادات العملاء",
     "home.how_it_works": "كيف يعمل",
-    "home.join_providers": "انضم إلى مقدمي الخدمات",
+    "home.join_providers": "انضم إ��ى مقدمي الخدمات",
     "home.join_providers_desc": "طور نشاطك التجاري مع منصتنا الآمنة",
 
     // Services
@@ -195,7 +195,8 @@ const translations = {
     // Club Pro
     "clubpro.title": "Club Pro",
     "clubpro.subtitle": "وصول حصري للمشاريع ع��لية القيمة",
-    "clubpro.price": "500 درهم/سنة",
+    "clubpro.price": "50 درهم/شهر",
+    "clubpro.commitment": "التزام سنة واحدة - 600 درهم مجموع",
     "clubpro.projects_range": "مشاريع من 5,000 - 50,000 درهم",
     "clubpro.exclusive_projects": "مشاريع حصرية",
     "clubpro.reduced_commission": "عمولة مخفضة",
