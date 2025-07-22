@@ -528,17 +528,16 @@ export default function Index() {
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-4 md:mb-0">
               <h3 className="text-2xl font-bold mb-2">
-                Service d'Urgence 24/7
+                {t("sos.title")}
               </h3>
               <p className="opacity-90">
-                Plomberie, électricité, serrurerie - Intervention rapide partout
-                au Maroc
+                {t("sos.description")}
               </p>
             </div>
             <Button size="lg" variant="secondary" asChild>
               <Link to="/sos">
                 <Phone className="mr-2 h-5 w-5" />
-                Appeler SOS
+                {t("sos.call_button")}
               </Link>
             </Button>
           </div>
