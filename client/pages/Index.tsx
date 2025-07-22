@@ -360,36 +360,36 @@ export default function Index() {
               <div className="bg-primary text-primary-foreground rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 1
               </div>
-              <h3 className="font-semibold mb-2">Recherchez</h3>
+              <h3 className="font-semibold mb-2">{t("how_it_works.step1_title")}</h3>
               <p className="text-sm text-muted-foreground">
-                Trouvez le prestataire qui correspond à vos besoins
+                {t("how_it_works.step1_desc")}
               </p>
             </div>
             <div className="text-center">
               <div className="bg-primary text-primary-foreground rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 2
               </div>
-              <h3 className="font-semibold mb-2">Contactez</h3>
+              <h3 className="font-semibold mb-2">{t("how_it_works.step2_title")}</h3>
               <p className="text-sm text-muted-foreground">
-                Échangez via notre messagerie sécurisée
+                {t("how_it_works.step2_desc")}
               </p>
             </div>
             <div className="text-center">
               <div className="bg-primary text-primary-foreground rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 3
               </div>
-              <h3 className="font-semibold mb-2">Payez</h3>
+              <h3 className="font-semibold mb-2">{t("how_it_works.step3_title")}</h3>
               <p className="text-sm text-muted-foreground">
-                Paiement sécurisé avec notre système d'acompte
+                {t("how_it_works.step3_desc")}
               </p>
             </div>
             <div className="text-center">
               <div className="bg-primary text-primary-foreground rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 4
               </div>
-              <h3 className="font-semibold mb-2">Validez</h3>
+              <h3 className="font-semibold mb-2">{t("how_it_works.step4_title")}</h3>
               <p className="text-sm text-muted-foreground">
-                Confirmez la prestation et libérez le paiement
+                {t("how_it_works.step4_desc")}
               </p>
             </div>
           </div>
