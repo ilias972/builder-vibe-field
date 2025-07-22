@@ -211,12 +211,12 @@ export default function ClubProRegister() {
             <CardContent className="p-6">
               <div className="text-center">
                 <div className="text-3xl font-bold text-orange-600 mb-2">
-                  500 DH/an
+                  50 DH/mois
                 </div>
                 <p className="text-muted-foreground mb-4">
                   {language === "ar"
-                    ? "اشتراك سنوي للوصول لمشاريع 5,000 - 50,000 درهم"
-                    : "Abonnement annuel pour accéder aux projets de 5,000 - 50,000 DH"}
+                    ? "التزام لمدة سنة - 600 درهم مجموع للوصول لمشاريع 5,000 - 50,000 درهم"
+                    : "Engagement 1 an - 600 DH au total pour accéder aux projets de 5,000 - 50,000 DH"}
                 </p>
                 <div className="grid md:grid-cols-2 gap-4 text-sm">
                   <div className="flex items-center gap-2">
@@ -576,7 +576,7 @@ export default function ClubProRegister() {
                                 to="/club-pro/terms"
                                 className="text-primary hover:underline"
                               >
-                                شروط وأحك��م Club Pro
+                                شروط وأحكام Club Pro
                               </Link>
                             </>
                           ) : (
@@ -606,7 +606,7 @@ export default function ClubProRegister() {
                         />
                         <Label htmlFor="payment" className="text-sm">
                           {language === "ar"
-                            ? "أؤكد موافقتي على دفع 500 دره�� سنوياً لاشتراك Club Pro"
+                            ? "أؤكد موافقتي على دفع 500 درهم سنوياً لاشتراك Club Pro"
                             : "Je confirme accepter de payer 500 DH par an pour l'abonnement Club Pro"}
                         </Label>
                       </div>
