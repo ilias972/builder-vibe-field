@@ -488,6 +488,9 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Newsletter Section */}
+      <Newsletter />
+
       {/* CTA Section */}
       <section className="py-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
