@@ -80,16 +80,7 @@ export function Header() {
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link
-                    to="/about"
-                    className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                  >
-                    {t("nav.about")}
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
+
             </NavigationMenuList>
           </NavigationMenu>
 
@@ -119,12 +110,7 @@ export function Header() {
                   {t("nav.register")}
                 </Link>
               </Button>
-              <Button size="sm" asChild>
-                <Link to="/become-provider">
-                  <Shield className="mr-2 h-4 w-4" />
-                  {t("nav.become_provider")}
-                </Link>
-              </Button>
+
             </div>
 
             {/* Mobile menu button */}
@@ -163,13 +149,7 @@ export function Header() {
                 <Building2 className="h-4 w-4" />
                 Club Pro
               </Link>
-              <Link
-                to="/about"
-                className="rounded-md p-2 text-sm font-medium hover:bg-accent"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t("nav.about")}
-              </Link>
+
               <hr className="my-2" />
               <Link
                 to="/login"
@@ -186,14 +166,7 @@ export function Header() {
                 <UserCheck className="mr-2 h-4 w-4 inline" />
                 {t("nav.register")}
               </Link>
-              <Link
-                to="/become-provider"
-                className="rounded-md bg-primary p-2 text-sm font-medium text-primary-foreground"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <Shield className="mr-2 h-4 w-4 inline" />
-                {t("nav.become_provider")}
-              </Link>
+
             </nav>
           </div>
         )}
