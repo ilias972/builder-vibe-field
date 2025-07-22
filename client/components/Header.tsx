@@ -144,6 +144,14 @@ export function Header() {
           <div className="lg:hidden border-t bg-background p-4">
             <nav className="flex flex-col space-y-3">
               <Link
+                to="/"
+                className="flex items-center space-x-3 rounded-md p-2 text-sm font-medium hover:bg-accent"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Home className="h-4 w-4" />
+                {t("nav.home", "Accueil")}
+              </Link>
+              <Link
                 to="/project"
                 className="flex items-center space-x-3 rounded-md p-2 text-sm font-medium hover:bg-accent"
                 onClick={() => setMobileMenuOpen(false)}
