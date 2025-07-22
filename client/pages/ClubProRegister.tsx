@@ -201,8 +201,8 @@ export default function ClubProRegister() {
             </h1>
             <p className="text-muted-foreground">
               {language === "ar"
-                ? "اشتراك سنوي 500 درهم للوصول لمشاريع عالية القيمة"
-                : "Abonnement annuel 500 DH pour accéder aux projets de haute valeur"}
+                ? "50 درهم/شهر لمدة سنة مع التزام للوصول لمشاريع عالية القيمة"
+                : "50 DH/mois pendant un an avec engagement pour accéder aux projets de haute valeur"}
             </p>
           </div>
 
@@ -576,7 +576,7 @@ export default function ClubProRegister() {
                                 to="/club-pro/terms"
                                 className="text-primary hover:underline"
                               >
-                                شروط وأحكام Club Pro
+                                شروط وأحك��م Club Pro
                               </Link>
                             </>
                           ) : (
@@ -606,7 +606,7 @@ export default function ClubProRegister() {
                         />
                         <Label htmlFor="payment" className="text-sm">
                           {language === "ar"
-                            ? "أؤكد موافقتي على دفع 500 درهم سنوياً لاشتراك Club Pro"
+                            ? "أؤكد موافقتي على دفع 500 دره�� سنوياً لاشتراك Club Pro"
                             : "Je confirme accepter de payer 500 DH par an pour l'abonnement Club Pro"}
                         </Label>
                       </div>
