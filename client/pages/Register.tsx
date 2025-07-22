@@ -149,7 +149,7 @@ export default function Register() {
             ? "الخدمات والوثائق"
             : "Services et documents"
           : language === "ar"
-            ? "التحقق من الهوية"
+            ? "��لتحقق من الهوية"
             : "Vérification d'identité";
       case 4:
         return userType === "provider"
@@ -169,6 +169,14 @@ export default function Register() {
   };
 
   const maxSteps = userType === "client" ? 3 : 4;
+
+  useEffect(() => {
+    const typeParam = searchParams.get("type");
+    if (typeParam === "client" || typeParam === "provider") {
+      setUserType(typeParam);
+      setStep(2); // Skip type selection step
+    }
+  }, [searchParams]);
 
   if (
     (userType === "client" && step === 4) ||
@@ -233,7 +241,7 @@ export default function Register() {
             </h1>
             <p className="text-muted-foreground">
               {language === "ar"
-                ? "انضم إلى خدمات واحصل على أفضل الخدمات أو قدم خدماتك"
+                ? "انضم إلى خدمات واحصل على أفضل الخدمات ��و قدم خدماتك"
                 : "Rejoignez Khadamat pour accéder aux services ou proposer vos services"}
             </p>
           </div>
@@ -354,7 +362,7 @@ export default function Register() {
                         ? "اختر خدماتك وارفع الوثائق المطلوبة"
                         : "Sélectionnez vos services et téléchargez les documents requis"
                       : language === "ar"
-                        ? "تحق�� من هويتك باستخدام وثيقة رسمية"
+                        ? "تحقق من هويتك باستخدام وثيقة رسمية"
                         : "Vérifiez votre identité avec un document officiel")}
                   {userType === "provider" &&
                     step === 5 &&
@@ -381,7 +389,7 @@ export default function Register() {
                       <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-2">
                           <Label htmlFor="firstName">
-                            {language === "ar" ? "الاسم الأول" : "Pr��nom"} *
+                            {language === "ar" ? "الاسم الأول" : "Prénom"} *
                           </Label>
                           <Input
                             id="firstName"
