@@ -50,6 +50,8 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/register/client" element={<ClientRegister />} />
+              <Route path="/register/provider" element={<ProviderRegister />} />
               <Route path="/project" element={<Project />} />
               <Route path="/sos" element={<SOS />} />
               <Route path="/services/:service" element={<PlaceholderPage />} />
