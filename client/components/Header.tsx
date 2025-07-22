@@ -24,6 +24,7 @@ import {
   Shield,
   Search,
   Briefcase,
+  Home,
 } from "lucide-react";
 
 export function Header() {
